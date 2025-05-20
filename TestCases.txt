@@ -1,0 +1,68 @@
+Positive test cases - Home page
+
+Feature: Home page header
+  Scenario Outline: Checking that user can land on the home page
+    Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+    Then the home page is displayed as expected
+
+Feature: Home page header
+  Scenario Outline: Checking that user can search for an item in the header search field
+    Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+    And the home page is displayed expected
+    And I insert the following text in the search field "MacBook pr"
+    When I click on the "Search" button
+    Then autocomplete functionality kicks-in and the searched item is displayed as expected
+
+Feature: Home page header
+  Scenario Outline: Checking that search field visually displays image of searched item and that the image is clickable
+    Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+    And the home page is displayed expected
+    And I insert the following text in the search field "MacBook pr"
+    And a clickable image of the searched item is displayed
+    When I click on the displayed image
+    Then the searched item is displayed as expected
+
+Feature: Home page header
+    Scenario Outline: Check that drop-down menu in the header works as expected and that items from the drop-down list are accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed expected
+        And I click on the drop-down menu
+        Then this opens as expected
+        And when I click on one of the item in the drop-down list
+        Then the item is accessible
+
+Feature: Home page header
+    Scenario Outline: Check that icons on the top-right part of the home page are accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed expected
+        And I click on each of the three icons on the top-right part of the home page
+        Then each of them opens as expected
+
+Feature: Home page header
+    Scenario Outline: Check that "Shop by Category" link is clickable and categories also are
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And I click on "Shop by Category" link
+        Then all categories are displayed
+        And When I click on the following categories in this order: "Components", "Web Cameras" and finally "Printers & Scanners"
+        Then I can access the web page related to each of the clicked categories
+
+Feature: Home page header
+    Scenario Outline: Check that each link in the nav bar is accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And I click on each link in the nav bar in the following order: "Home", "Special", "Blog", "Mega Menu", "AddOns", "My account"
+        Then each link clicked in the previously described order is accessible
+
+Feature: Home page header
+    Scenario Outline: Check that pictures on the "Top Trending Categories" section of the page are clickable and accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        Then I can click on each of the pictures on the "Top Trending Categories" section of the page
+
+Feature: Home page header
+    Scenario Outline: Check that selections on the "Top Products" section of the page are clickable and accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And I hover over first left-hand side picture
+        Then I can select "Add to cart" and close the pop-up window
+        And I can select "Add To Wish List" and close the pop-up window
+        And I can select "Quick View" of the product and close the pop-up window
+        And I can select "Compare this product" and close the pop-up window
+
