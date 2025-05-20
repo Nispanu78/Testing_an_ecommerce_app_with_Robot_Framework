@@ -29,23 +29,3 @@ Verify that that pictures on the "Top Products" section of the page are clickabl
     Hover And Click    ${PicToHoverOver}    ${ImageQuickViewButton}    ${CloseImageQuickViewButton}
     Hover And Click    ${PicToHoverOver}    ${CompareImageButton}    ${CloseCompareImageButton}
 
-
-
-
-
-
-
-
-#    Mouse over       ${PicToHoverOver}
-#    Click element    ${ImageCartButton}
-#    Click element    ${CloseCartButton}
-#    Mouse over       ${PicToHoverOver}
-#    Click element    ${ImageWishListButton}
-#    Click element    ${CloseWishListButton}
-#    Mouse over       ${PicToHoverOver}
-#    Click element    ${ImageQuickViewButton}
-#    Click element    ${CloseImageQuickViewButton}
-#    Mouse over       ${PicToHoverOver}
-#    Click element    ${CompareImageButton}
-#    Click element    ${CloseCompareImageButton}
-
