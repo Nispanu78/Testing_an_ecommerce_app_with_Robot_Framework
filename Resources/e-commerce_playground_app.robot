@@ -3,11 +3,12 @@ Resource   ./PO/HomePage/KeywordDefinitionFiles/navigate_and_search.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/drop-down_menu.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/click_icons.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/shop_by_category.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/nav_bar_links.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/click_on_main_pic.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/first_shop_now_link_and_two_images.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/top_trending_pics.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/top_products.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/nav_bar_links.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/click_on_main_pic.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/first_shop_now_link_and_two_images.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/top_trending_pics.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/top_products.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/second_and_third_shop_now_link.robot
 
 *** Variables ***
 
@@ -46,3 +47,6 @@ Click the pics on the "Top trending categories" of the home page
 
 Click pics on the "Top Products" section of the page
     top_products.Verify that that pictures on the "Top Products" section of the page are clickable and accessible
+
+Click the second and third "Shop Now" button
+    second_and_third_shop_now_link.Verify that the second and third "Shop Now" link are clickable

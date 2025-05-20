@@ -43,6 +43,9 @@ ${BROWSER} =  headlesschrome
 #User can click on the pics on the "Top Trending Categories" of the home page
 #    e-commerce_playground_app.Click the pics on the "Top trending categories" of the home page
 
-User can click on the pics on the "Top products" section of the page
-    e-commerce_playground_app.Click pics on the "Top Products" section of the page
+#User can click on the pics on the "Top products" section of the page
+#    e-commerce_playground_app.Click pics on the "Top Products" section of the page
+
+User can click the third and second "Shop now" buttons
+    e-commerce_playground_app.Click the second and third "Shop Now" button
 
