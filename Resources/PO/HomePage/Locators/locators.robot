@@ -3,9 +3,11 @@
 #   Choose preferred browser and open the web application under test with it
 
 ${URL}     https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-#${PreferredBrowser}     headlesschrome
-${PreferredBrowser}     chrome
+${PreferredBrowser}     headlesschrome
+${SearchBox}           //input[@type='text']
+#${PreferredBrowser}     chrome
 ${SearchButton}   //button[text()='Search']
+${SearchedItem}     //img[@alt="MacBook Pro"]
 ${Drop-downMenuButton}  //button[@class='btn dropdown-toggle']
 ${Drop-downLinks}    //a[contains(@class, 'dropdown-item')]
 ${ItemToSelectFromDrop-down}  //a[contains(@data-category_id, '20')]
@@ -36,3 +38,4 @@ ${ImageQuickViewButton}           //button[@title='Quick view']
 ${CloseImageQuickViewButton}      //*[@id="quick-view"]/div/div/button
 ${CompareImageButton}             //button[@title='Compare this Product']
 ${CloseCompareImageButton}        //*[@id="notification-box-top"]/div/div[1]/button
+${EditCartLink}         //a[contains(@class, 'icon-right both btn btn-primary btn-lg btn-block')]

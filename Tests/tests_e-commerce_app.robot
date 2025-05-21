@@ -10,6 +10,7 @@ ${BROWSER} =  headlesschrome
 
 #Location of test suite and command to start
 #the Robot Framework C:\Users\HV322VM\OneDrive - EY\Desktop\lambada_testing_ecommerce_playground\Tests> robot -d results tests_e-commerce_app.robot
+#To run only tagged test cases use the following command: robot -d results -i HomePage tests_e-commerce_app.robot
 
 *** Test Cases ***
 

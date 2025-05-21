@@ -20,7 +20,7 @@ Verify that user can search for an item and retrieve it
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
     Maximize browser window
-    Input text  ${search_box}   ${item_to_be_searched}
+    Input text  ${SearchBox}   ${ItemToBeSearched}
     Click button    ${SearchButton}
     Page should contain image    ${SearchedItem}
 
@@ -30,7 +30,7 @@ Verify that user can hover over the image that is displayed after text is inputt
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
     Maximize browser window
-    Input text  ${search_box}   ${item_to_be_searched}
+    Input text  ${SearchBox}   ${ItemToBeSearched}
     Wait Until Element Is Visible    ${ImageToClick}  timeout=10
     Wait Until Element Is Enabled    ${ImageToClick}    timeout=10
 #    Here JavaScript is used in order to click directly on the image, since standard click methods (mouse over + mouse down) were ineffective
