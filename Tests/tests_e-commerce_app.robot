@@ -11,6 +11,7 @@ ${BROWSER} =  headlesschrome
 #Location of test suite and command to start
 #the Robot Framework C:\Users\HV322VM\OneDrive - EY\Desktop\lambada_testing_ecommerce_playground\Tests> robot -d results tests_e-commerce_app.robot
 #To run only tagged test cases use the following command: robot -d results -i HomePage tests_e-commerce_app.robot
+#To perform a dry run where keywords coming from test libraries are not executed (used to validate test data run: robot -d results --dryrun tests_e-commerce_app.robot
 
 *** Test Cases ***
 
@@ -26,7 +27,7 @@ User can hover over the image displayed when searched item is retrieved
     [Tags]    HomePage
     e-commerce_playground_app.Search for an item through the search bar, hover over its image and click on the image
 
-User can open the drop-down menu and choose a category from the
+User can open the drop-down menu and choose a category from the drop-down list
     [Tags]    HomePage
     e-commerce_playground_app.Open the drop-down menu and choose a category
 
