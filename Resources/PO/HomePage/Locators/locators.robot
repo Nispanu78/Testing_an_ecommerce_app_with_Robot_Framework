@@ -3,9 +3,9 @@
 #   Choose preferred browser and open the web application under test with it
 
 ${URL}     https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-#${PreferredBrowser}     headlesschrome
+${PreferredBrowser}     headlesschrome
 ${SearchBox}           //input[@type='text']
-${PreferredBrowser}     chrome
+#${PreferredBrowser}     chrome
 ${SearchButton}   //button[text()='Search']
 ${SearchedItem}     //img[@alt="MacBook Pro"]
 ${Drop-downMenuButton}  //button[@class='btn dropdown-toggle']
