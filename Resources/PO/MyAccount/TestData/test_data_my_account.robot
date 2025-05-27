@@ -1,0 +1,3 @@
+*** Variables ***
+
+${MyAccountLoginText}   New Customer
