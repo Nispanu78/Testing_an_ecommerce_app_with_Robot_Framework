@@ -17,55 +17,64 @@ ${BROWSER} =  headlesschrome
 
 *** Test Cases ***
 
-User can land on the home page of the e-commerce app
-    [Tags]    HomePage
-    e-commerce_playground_app.Go to Home Page
-
-User can search for an item through the search bar in the home page
-    [Tags]    HomePage
-    e-commerce_playground_app.Search for an item through the search bar in the home page
-
-User can hover over the image displayed when searched item is retrieved
-    [Tags]    HomePage
-    e-commerce_playground_app.Search for an item through the search bar, hover over its image and click on the image
-
-User can open the drop-down menu and choose a category from the drop-down list
-    [Tags]    HomePage
-    e-commerce_playground_app.Open the drop-down menu and choose a category
-
-User can click on the three icons on the top-right section of the home page
-    [Tags]    HomePage
-    e-commerce_playground_app.Click icons on the top-right part of the home page
-
-User can click the Shop by Category link and access the categories contained in it
-    [Tags]    HomePage
-    e-commerce_playground_app.Click the Shop by Category link and access one of the categories
-
-User can click each link in the nav bar and access relevant information
-    [Tags]    HomePage
-    e-commerce_playground_app.Click each link in the nav bar
-
-User can see the main image on the home page change automatically and click on the left-arrow to change it manually
-    [Tags]    HomePage
-    e-commerce_playground_app.Assert that carousel work as expected and that main picture in the home page is clickable
-
-User can click the "Shop Now" button and the two images related to it
-    [Tags]    HomePage
-    e-commerce_playground_app.Click the first Shop Now button and the two images located below
+#User can land on the home page of the e-commerce app
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Go to Home Page
 #
-User can click on the pics on the "Top Trending Categories" of the home page
-    [Tags]    HomePage
-    e-commerce_playground_app.Click the pics on the "Top trending categories" of the home page
+#User can search for an item through the search bar in the home page
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Search for an item through the search bar in the home page
 #
-User can click on the pics on the "Top products" section of the page and access the menu options
-    [Tags]    HomePage
-    e-commerce_playground_app.Click pics on the "Top Products" section of the page
+#User can hover over the image displayed when searched item is retrieved
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Search for an item through the search bar, hover over its image and click on the image
+#
+#User can open the drop-down menu and choose a category from the drop-down list
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Open the drop-down menu and choose a category
+#
+#User can click on the three icons on the top-right section of the home page
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click icons on the top-right part of the home page
+#
+#User can click the Shop by Category link and access the categories contained in it
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click the Shop by Category link and access one of the categories
+#
+#User can click each link in the nav bar and access relevant information
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click each link in the nav bar
+#
+#User can see the main image on the home page change automatically and click on the left-arrow to change it manually
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Assert that carousel work as expected and that main picture in the home page is clickable
+#
+#User can click the "Shop Now" button and the two images related to it
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click the first Shop Now button and the two images located below
+##
+#User can click on the pics on the "Top Trending Categories" of the home page
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click the pics on the "Top trending categories" of the home page
+##
+#User can click on the pics on the "Top products" section of the page and access the menu options
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click pics on the "Top Products" section of the page
+#
+#User can click the third and second "Shop now" buttons
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click the second and third "Shop Now" button
+#
+#User can click on the pics on the "Top collection" section of the page and access the menu options
+#    [Tags]    HomePage
+#    e-commerce_playground_app.Click links and pictures on the "Top collection" section of the page
+#
+#User can click on the "Shop now" image below "Top Collection" sub header
+#    e-commerce_playground_app.Click on the image below "Top Collection" sub header
+#
+#User can click on the pic on the "Under @99" section of the page and access the menu options
+#    e-commerce_playground_app.Click links and pictures on the "Under @99" section of the page
 
-User can click the third and second "Shop now" buttons
-    [Tags]    HomePage
-    e-commerce_playground_app.Click the second and third "Shop Now" button
-
-User can click on the pics on the "Top collection" section of the page and access the menu options
-    [Tags]    HomePage
-    e-commerce_playground_app.Click links and pictures on the "Top collection" section of the page
+User can click on the picture corresponding to one of the blogs and on the link related to the blog's author
+    e-commerce_playground_app.Click on picture and link to blog's author in the "From the blog" section of the page
 

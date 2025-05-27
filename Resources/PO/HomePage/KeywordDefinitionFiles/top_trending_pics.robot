@@ -16,6 +16,7 @@ Verify that that pictures on the "Top Trending Categories" section of the page a
     Maximize browser window
     Scroll element into view    ${TopTrendingCategoriesSection}
     Execute javascript    document.querySelector("img[alt*='HP25 headphone']").click();
+    Page should contain    HP LP3065
 #    Page has been refactored so locators shown below are no longer valid
 #    Execute javascript    document.querySelector("img[alt*='Desktops']").click();
 #    Go back

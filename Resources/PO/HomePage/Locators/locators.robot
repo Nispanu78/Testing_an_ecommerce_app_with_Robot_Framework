@@ -50,3 +50,11 @@ ${CompareImageButton}             //button[@title='Compare this Product']
 ${CompareImageButtonTopCollection}      document.querySelector('.btn.btn-compare.compare-29').click();
 ${CloseCompareImageButton}        //*[@id="notification-box-top"]/div/div[1]/button
 ${EditCartLink}         //a[contains(@class, 'icon-right both btn btn-primary btn-lg btn-block')]
+${ShopNowImage}         //img[@alt='Apple Ipad Pro']
+${Under99Image}         //a[@id='mz-product-listing-image-81217990-0-0']
+${ImageCartButtonUnder99}   document.querySelector('.btn.btn-cart.cart-63').click();
+${ImageWishListUnder99}     document.querySelector('.btn.btn-wishlist.wishlist-63').click();
+${ImageQuickViewUnder99}     document.querySelector('.btn.btn-quick-view.quick-view-63').click()
+${ImageCloseCompareUnder99}  document.querySelector('.btn.btn-compare.compare-63').click();
+${FromTheBlog}  //*[@id='entry_217991']
+${BloggerNameLocator}   //div[contains(@id, 'swiper-wrapper')]//span[1]/a

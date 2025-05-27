@@ -31,7 +31,6 @@ Verify that that options on "Top collection" sub-header are clickable, that imag
     Sleep    1s
     Click element    ${TopCollectionNextButton}
     Click element    ${TopCollectionPreviewButton}
-#    Scroll element into view    ${PicToHoverOverTopCollection}
 
     # Using Action Chains for mouse over and click actions
     Hover And Click    ${PicToHoverOverTopCollection}     ${ImageCartButtonTopCollection}   ${CloseCartButton}
@@ -40,3 +39,4 @@ Verify that that options on "Top collection" sub-header are clickable, that imag
     Hover And Click    ${PicToHoverOverTopCollection}    ${CompareImageButtonTopCollection}    ${CloseCompareImageButton}
     Sleep    2s
     Click element    ${PicToClickTopCollection}
+    Page should contain    Palm Treo Pro

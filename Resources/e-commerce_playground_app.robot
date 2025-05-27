@@ -10,6 +10,9 @@ Resource   ./PO/HomePage/KeywordDefinitionFiles/top_trending_pics.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/top_products.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/second_and_third_shop_now_link.robot
 Resource    ./PO/HomePage/KeywordDefinitionFiles/top_collection.robot
+Resource    ./PO/HomePage/KeywordDefinitionFiles/shop_now_image.robot
+Resource    ./PO/HomePage/KeywordDefinitionFiles/under_@99.robot
+Resource    ./PO/HomePage/KeywordDefinitionFiles/from_the_blog.robot
 
 *** Variables ***
 
@@ -54,3 +57,12 @@ Click the second and third "Shop Now" button
 
 Click links and pictures on the "Top collection" section of the page
     top_collection.Verify that that options on "Top collection" sub-header are clickable, that images are clickable and that menu options are accessible
+
+Click on the image below "Top Collection" sub header
+    shop_now_image.Verify that that picture below "Top Collection" section is clickable
+
+Click links and pictures on the "Under @99" section of the page
+    under_@99.Verify that that picture below "Under @99" sub-header is clickable and that menu options are accessible
+
+Click on picture and link to blog's author in the "From the blog" section of the page
+    from_the_blog.Verify that that picture on the "From the blog" section of the page is clickable and that link to the blog's author is accessible
