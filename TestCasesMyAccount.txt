@@ -1,0 +1,5 @@
+Feature: My Account header
+    Scenario Outline: Check that My Account page is accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And I click on "My account" link
+        Then the My Account page is displayed as expected
