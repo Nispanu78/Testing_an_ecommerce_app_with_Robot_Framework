@@ -15,16 +15,18 @@ Verify that that pictures on the "Top Trending Categories" section of the page a
     Open Browser    ${URL}      ${PreferredBrowser}
     Maximize browser window
     Scroll element into view    ${TopTrendingCategoriesSection}
-    Execute javascript    document.querySelector("img[alt*='Desktops']").click();
-    Go back
-    Execute javascript    document.querySelector("img[alt*='Laptops']").click();
-    Go back
-    Execute javascript    document.querySelector("img[alt*='Components']").click();
-    Go back
-    Execute javascript    document.querySelector("img[alt*='Tablets']").click();
-    Go back
-    Execute javascript    document.querySelector("img[alt*='Software']").click();
-    Go back
-    Execute javascript    document.querySelector("img[alt*='Phones & PDAs']").click();
-    Go back
+    Execute javascript    document.querySelector("img[alt*='HP25 headphone']").click();
+#    Page has been refactored so locators shown below are no longer valid
+#    Execute javascript    document.querySelector("img[alt*='Desktops']").click();
+#    Go back
+#    Execute javascript    document.querySelector("img[alt*='Laptops']").click();
+#    Go back
+#    Execute javascript    document.querySelector("img[alt*='Components']").click();
+#    Go back
+#    Execute javascript    document.querySelector("img[alt*='Tablets']").click();
+#    Go back
+#    Execute javascript    document.querySelector("img[alt*='Software']").click();
+#    Go back
+#    Execute javascript    document.querySelector("img[alt*='Phones & PDAs']").click();
+#    Go back
 

@@ -9,6 +9,7 @@ Resource   ./PO/HomePage/KeywordDefinitionFiles/first_shop_now_link_and_two_imag
 Resource   ./PO/HomePage/KeywordDefinitionFiles/top_trending_pics.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/top_products.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/second_and_third_shop_now_link.robot
+Resource    ./PO/HomePage/KeywordDefinitionFiles/top_collection.robot
 
 *** Variables ***
 
@@ -46,7 +47,10 @@ Click the pics on the "Top trending categories" of the home page
     top_trending_pics.Verify that that pictures on the "Top Trending Categories" section of the page are clickable and accessible
 
 Click pics on the "Top Products" section of the page
-    top_products.Verify that that pictures on the "Top Products" section of the page are clickable and accessible
+    top_products.Verify that that pictures on the "Top Products" section of the page are clickable and that menu options are accessible
 
 Click the second and third "Shop Now" button
     second_and_third_shop_now_link.Verify that the second and third "Shop Now" link are clickable
+
+Click links and pictures on the "Top collection" section of the page
+    top_collection.Verify that that options on "Top collection" sub-header are clickable, that images are clickable and that menu options are accessible

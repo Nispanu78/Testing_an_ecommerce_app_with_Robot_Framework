@@ -53,12 +53,12 @@ Feature: Home page header
         Then each link clicked in the previously described order is accessible
 
 Feature: Home page header
-    Scenario Outline: Check that pictures on the "Top Trending Categories" section of the page are clickable and accessible
+    Scenario Outline: Check that pictures on the "Top Trending Categories" sub-header are clickable and accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
         Then I can click on each of the pictures on the "Top Trending Categories" section of the page
 
 Feature: Home page header
-    Scenario Outline: Check that selections on the "Top Products" section of the page are clickable and accessible
+    Scenario Outline: Check that selections on the "Top Products" sub-header are clickable and that menu options are accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
         And I hover over first left-hand side picture
         Then I can select "Add to cart" and close the pop-up window
@@ -66,3 +66,21 @@ Feature: Home page header
         And I can select "Quick View" of the product and close the pop-up window
         And I can select "Compare this product" and close the pop-up window
 
+Feature: Home page header
+    Scenario Outline: Check that options on "Top collection" sub-header are clickable and accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And I click on "Popular"
+        Then appropriate selections are displayed
+        And When I click on "Latest"
+        Then appropriate selections are displayed
+        And When I click on "Best Seller"
+        Then appropriate selections are displayed
+        And When I click on left-arrow button
+        Then the page shows me next selections
+        And When I click on right-arrow button
+        Then the page shows me previous selections
+        And When I hover over on a picture
+        Then I can select either "Add to cart" or "Add To Wish List" or "Quick View" or"Compare this product" exactly as
+        in the previous test
+        And When I click on the picture
+        Then i can access the detail page concerning the product shown on the picture
