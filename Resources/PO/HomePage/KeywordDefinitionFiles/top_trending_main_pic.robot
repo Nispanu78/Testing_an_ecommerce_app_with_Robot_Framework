@@ -8,12 +8,11 @@ Resource    ../TestData/item_to_search.robot
 
 *** Keywords ***
 
-Verify that that picture below "Top Collection" section is clickable
-    [Documentation]    Top Collection
+Verify that the main picture on the "Top Trending Categories" section of the page is clickable and accessible
+    [Documentation]    Top trending
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
     Maximize browser window
-    Scroll element into view    ${ShopNowImage}
-    Execute javascript    document.querySelector("img[alt*='Apple Ipad Pro']").click();
-    Page should contain    iPod Touch
+    Execute javascript    document.querySelector("img[alt*='HP25 headphone']").click();
+    Page should contain    HP LP3065

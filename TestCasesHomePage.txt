@@ -1,74 +1,113 @@
 Positive test cases - Home page
 
-Feature: Home page header
+Feature: Home page
   Scenario Outline: Checking that user can land on the home page
     Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
     Then the home page is displayed as expected
 
-Feature: Home page header
+Feature: Home page
   Scenario Outline: Checking that user can search for an item in the header search field
     Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-    And the home page is displayed expected
-    And I insert the following text in the search field "MacBook pr"
+    And the home page is displayed as expected
+    And I insert the following text in the search field: "MacBook pr"
     When I click on the "Search" button
     Then autocomplete functionality kicks-in and the searched item is displayed as expected
 
-Feature: Home page header
+Feature: Home page
   Scenario Outline: Checking that search field visually displays image of searched item and that the image is clickable
     Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-    And the home page is displayed expected
-    And I insert the following text in the search field "MacBook pr"
+    And the home page is displayed as expected
+    And I insert the following text in the search field: "MacBook pr"
     And a clickable image of the searched item is displayed
     When I click on the displayed image
-    Then the searched item is displayed as expected
+    Then the detail page of the searched item is displayed as expected
 
-Feature: Home page header
+Feature: Home page
     Scenario Outline: Check that drop-down menu in the header works as expected and that items from the drop-down list are accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-        And the home page is displayed expected
-        And I click on the drop-down menu
+        And the home page is displayed as expected
+        And I click on the drop-down menu "All Categories"
         Then this opens as expected
-        And when I click on one of the item in the drop-down list
+        And when I click on one of the item in the drop-down list ("Desktops")
         Then the item is accessible
 
-Feature: Home page header
+Feature: Home page
     Scenario Outline: Check that icons on the top-right part of the home page are accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-        And the home page is displayed expected
+        And the home page is displayed as expected
         And I click on each of the three icons on the top-right part of the home page
         Then each of them opens as expected
 
-Feature: Home page header
+Feature: Home page
     Scenario Outline: Check that "Shop by Category" link is clickable and categories also are
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         And I click on "Shop by Category" link
         Then all categories are displayed
         And When I click on the following categories in this order: "Components", "Web Cameras" and finally "Printers & Scanners"
         Then I can access the web page related to each of the clicked categories
 
-Feature: Home page header
+Feature: Home page
     Scenario Outline: Check that each link in the nav bar is accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         And I click on each link in the nav bar in the following order: "Home", "Special", "Blog", "Mega Menu", "AddOns", "My account"
         Then each link clicked in the previously described order is accessible
 
-Feature: Home page header
+Feature: Home page
+    Scenario Outline: Check carousel displays three picture user can alternate between either manually or automatically
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        And I click on each a picture in the carousel
+        Then I can access the detail page of the item displayed in the picture
+        And When I click on the left-arrow button
+        Then I can switch between pictures manually
+        And When I do not click on the arrow buttons
+        Then pictures change automatically
+
+Feature: Home page
+    Scenario Outline: Check that user can click on the first "Shop now" button and the two pictures below it
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        Then I can click on the "Shop now" button and the two pictures below it
+
+Feature: Home page
     Scenario Outline: Check that pictures on the "Top Trending Categories" sub-header are clickable and accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         Then I can click on each of the pictures on the "Top Trending Categories" section of the page
 
-Feature: Home page header
-    Scenario Outline: Check that pictures on the "Top Products" sub-header are clickable and that menu options are accessible
+Feature: Home page
+    Scenario Outline: Check that main picture below the "Top Trending Categories" sub-header is clickable and accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        Then I can click on the main picture below the "Top Trending Categories" sub-header
+
+Feature: Home page
+    Scenario Outline: Check that pictures on the "Top Products" sub-header are clickable, that it is possible to switch between
+     them with arrow-buttons and that menu options are accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         And I hover over first left-hand side picture
         Then I can select "Add to cart" and close the pop-up window
         And I can select "Add To Wish List" and close the pop-up window
         And I can select "Quick View" of the product and close the pop-up window
         And I can select "Compare this product" and close the pop-up window
+        And When I click on the left first then the right arrow buttons
+        Then I can switch between picture items
+        And When I click on a displayed picture
+        Then I can access the detailed page of the item depicted in the picture
 
-Feature: Home page header
+Feature: Home page
+    Scenario Outline: Check that user can click on the second and third "Shop now" buttons
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        Then I can click on the second and third "Shop now" buttons
+
+Feature: Home page
     Scenario Outline: Check that pictures and options on "Top collection" sub-header are clickable and that menu options are accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         And I click on "Popular"
         Then appropriate selections are displayed
         And When I click on "Latest"
@@ -80,24 +119,34 @@ Feature: Home page header
         And When I click on right-arrow button
         Then the page shows me previous selections
         And When I hover over a picture
-        Then I can select either "Add to cart" or "Add To Wish List" or "Quick View" or"Compare this product" exactly as
-        in the test "Check that pictures on the "Top Products" sub-header are clickable and that menu options are accessible"
+        Then I can select either "Add to cart" or "Add To Wish List" or "Quick View" or "Compare this product" exactly as
+        in the test: "Check that pictures on the "Top Products" sub-header are clickable, that it is possible to switch between
+        them with arrow-buttons and that menu options are accessible"
         And When I click on the picture
-        Then I can access the detail page concerning the product shown on the picture I clicked on
+        Then I can access the detail page of the item depicted in the picture
 
-Feature: Home page header
-    Scenario Outline: Check that options on "Under @99" sub-header are clickable and that menu options are accessible
+Feature: Home page
+    Scenario Outline: Check that user can click on the "Shop now" image below "Top Collection" sub header
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        Then I can click on the "Shop now" image below "Top Collection" sub-header
+
+Feature: Home page
+    Scenario Outline: Check that picture on "Under @99" sub-header is clickable and that menu options are accessible
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         When I hover over a picture in the "Under @99" section of the page
-        Then I can select either "Add to cart" or "Add To Wish List" or "Quick View" or"Compare this product" exactly as
-        in the test "Check that pictures on the "Top Products" sub-header are clickable and that menu options are accessible"
+        Then I can select either "Add to cart" or "Add To Wish List" or "Quick View" or "Compare this product" exactly as
+        in the test "Check that pictures on the "Top Products" sub-header are clickable, that it is possible to switch between
+        them with arrow-buttons and that menu options are accessible"
         And When I click on the picture
-        Then I can access the detail page concerning the product shown on the picture I clicked on
+        Then I can access the detail page of the item depicted in the picture
 
-Feature: Home page header
-    Scenario Outline: Check that I can click on the picture of a blog "From the Blog" section of the page and that I can click on the author's blog
+Feature: Home page
+    Scenario Outline: Check that I can click on the picture of a blog from the "From the Blog" section of the page and that I can click on the name of the author's blog
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
-        Then I can click on the picture of a blog "From the Blog" section of the page and that I can click on the author's blog
-        And after I go back to "From the Blog" section of the page
+        And the home page is displayed as expected
+        Then I can click on the picture of a blog from the "From the Blog" section of the page
+        And after I go back to the "From the Blog" section of the page
         When I click on the blog's author name
         Then I can access the detail page dedicated to him/her

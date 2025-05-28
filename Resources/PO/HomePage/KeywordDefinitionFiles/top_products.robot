@@ -28,4 +28,12 @@ Verify that that pictures on the "Top Products" section of the page are clickabl
     Hover And Click    ${PicToHoverOver}    ${ImageWishListButton}    ${CloseWishListButton}
     Hover And Click    ${PicToHoverOver}    ${ImageQuickViewButton}    ${CloseImageQuickViewButton}
     Hover And Click    ${PicToHoverOver}    ${CompareImageButton}    ${CloseCompareImageButton}
+    Sleep    1s
+    Click element    ${RightArrowButtonTopProducts}
+    Sleep   1s
+    Click element    ${LeftArrowButtonTopProducts}
+    Sleep    1s
+    Click element   ${PicToClick}
+    Page should contain    iMac
+
 

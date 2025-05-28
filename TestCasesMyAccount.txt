@@ -1,4 +1,4 @@
-Feature: My Account header
+Feature: My Account
     Scenario Outline: Check that My Account page is accessible
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
         And I click on "My account" link

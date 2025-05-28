@@ -13,7 +13,7 @@ ${ImageToClick}   //img[@alt="MacBook Pro"]
 ${CompareIcon}   //a[contains(@aria-label, 'Compare')]
 ${WishListicon}   //a[contains(@aria-label, 'Wishlist')]
 ${CartIcon}       //a[contains(@class, 'cart text-reset text-decoration-none no-title')]
-${ShopByCategoryLink}    //a[contains(@class, 'icon-left both text-reset')]
+${ShopByCategoryLink}    document.querySelector("a.icon-left.both.text-reset").click();
 ${ComponentsCategory}    //a[contains(text(), 'Components')]
 ${CategoriesWidgetContainer}  //*[@id="widget-navbar-217841"]//a[contains(., 'Components')]
 ${HomePageMainPic}    //img[@alt="Iphone 11 pro max"]
@@ -26,13 +26,13 @@ ${Iphone 11 pro max}     //img[@alt='Iphone 11 pro max']
 ${Microsoft smartwatch}    //img[@alt='Microsoft smartwatch']
 ${Canon DSLR camera}       //img[@alt='Canon DSLR camera']
 ${TopTrendingCategoriesSection}   //*[@id="entry_217969"]
-${TopTrendingItem}
 ${TopProductsSection}             //*[@id="entry_217978"]
 ${TopCollectionSection}           //*[@id="mz-product-listing-39217984"]
 ${TopCollectionUnorderListOptions}  //*[@class='nav nav-tabs nav-scroll mr-auto']//a
 ${TopCollectionPreviewButton}       //*[@class="mz-swiper-nav-prev"]
 ${TopCollectionNextButton}          //*[@class="mz-swiper-nav-next"]
 ${PicToHoverOver}                 //*[@id="mz-product-listing-image-37217979-0-0"]
+${PicToClick}                     //*[@id="mz-product-listing-image-37217979-0-1"]
 ${PicToHoverOverTopCollection}    //*[@id="mz-product-listing-image-39217984-2-2"]
 ${PicToClickTopCollection}        //*[@id="mz-product-listing-image-39217984-2-2"]
 ${ImageCartButton}                //button[@class='btn btn-cart cart-107']
@@ -47,6 +47,8 @@ ${CloseImageQuickViewButton}      //*[@id="quick-view"]/div/div/button
 ${CompareImageButton}             //button[@title='Compare this Product']
 ${CompareImageButtonTopCollection}      document.querySelector('.btn.btn-compare.compare-29').click();
 ${CloseCompareImageButton}        //*[@id="notification-box-top"]/div/div[1]/button
+${RightArrowButtonTopProducts}     //div[@id='mz-product-tab-37217979-0']//a[2]
+${LeftArrowButtonTopProducts}    //*[@id="mz-product-tab-37217979-0"]/div/div[2]/a[1]
 ${EditCartLink}         //a[contains(@class, 'icon-right both btn btn-primary btn-lg btn-block')]
 ${ShopNowImage}         //img[@alt='Apple Ipad Pro']
 ${Under99Image}         //a[@id='mz-product-listing-image-81217990-0-0']

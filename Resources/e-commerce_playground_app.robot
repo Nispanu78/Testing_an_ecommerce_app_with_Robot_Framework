@@ -7,12 +7,13 @@ Resource   ./PO/HomePage/KeywordDefinitionFiles/nav_bar_links.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/click_on_main_pic.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/first_shop_now_link_and_two_images.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/top_trending_pics.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/top_trending_main_pic.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/top_products.robot
 Resource   ./PO/HomePage/KeywordDefinitionFiles/second_and_third_shop_now_link.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/top_collection.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/shop_now_image.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/under_@99.robot
-Resource    ./PO/HomePage/KeywordDefinitionFiles/from_the_blog.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/top_collection.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/shop_now_image.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/under_@99.robot
+Resource   ./PO/HomePage/KeywordDefinitionFiles/from_the_blog.robot
 
 *** Variables ***
 
@@ -48,6 +49,9 @@ Click the first Shop Now button and the two images located below
 
 Click the pics on the "Top trending categories" of the home page
     top_trending_pics.Verify that that pictures on the "Top Trending Categories" section of the page are clickable and accessible
+
+Click the main pic in the "Top trending categories" section of the home page
+    top_trending_main_pic.Verify that the main picture on the "Top Trending Categories" section of the page is clickable and accessible
 
 Click pics on the "Top Products" section of the page
     top_products.Verify that that pictures on the "Top Products" section of the page are clickable and that menu options are accessible

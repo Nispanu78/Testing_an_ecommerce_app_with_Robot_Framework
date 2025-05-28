@@ -18,7 +18,7 @@ Hover And Click
 
 
 Verify that that options on "Top collection" sub-header are clickable, that images are clickable and that menu options are accessible
-    [Documentation]    Nav bar
+    [Documentation]    "Top collection" sub-header
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

@@ -9,7 +9,7 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that the first "Shop Now" link is clickable and that the two image below also are
-    [Documentation]    Open  website
+    [Documentation]    Verify "Shop Now" link
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
