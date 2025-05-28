@@ -9,7 +9,6 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that the main picture on the "Top Trending Categories" section of the page is clickable and accessible
-    [Documentation]    Top trending
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

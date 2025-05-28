@@ -18,7 +18,6 @@ Hover And Click
 
 
 Verify that that picture below "Under @99" sub-header is clickable and that menu options are accessible
-    [Documentation]    Under @99
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

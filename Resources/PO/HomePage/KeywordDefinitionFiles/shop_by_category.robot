@@ -9,7 +9,6 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that the icons on the top-right part of the home page are clickable
-    [Documentation]    Top-right icons
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

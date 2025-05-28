@@ -9,7 +9,6 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that that picture on the "From the blog" section of the page is clickable and that link to the blog's author is accessible
-    [Documentation]    "From the blog" section
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

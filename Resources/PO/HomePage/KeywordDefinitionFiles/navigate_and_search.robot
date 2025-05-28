@@ -9,13 +9,11 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that the provided URL is accessible and that user can land on homepage
-    [Documentation]    Open  website
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
 
 Verify that user can search for an item and retrieve it
-    [Documentation]    Search for an item
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
@@ -25,7 +23,6 @@ Verify that user can search for an item and retrieve it
     Page should contain image    ${SearchedItem}
 
 Verify that user can hover over the image that is displayed after text is inputted in the search bar
-    [Documentation]    Hover over an image and click
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

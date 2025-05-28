@@ -9,7 +9,6 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that carousel works as expected by automatically loops over three different pictures and that it is possible to click an image
-    [Documentation]    Open  website
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

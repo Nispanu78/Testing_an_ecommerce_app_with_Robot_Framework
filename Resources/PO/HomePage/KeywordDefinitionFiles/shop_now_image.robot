@@ -9,7 +9,6 @@ Resource    ../TestData/item_to_search.robot
 *** Keywords ***
 
 Verify that that picture below "Top Collection" section is clickable
-    [Documentation]    Top Collection
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}

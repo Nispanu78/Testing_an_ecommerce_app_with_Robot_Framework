@@ -16,7 +16,6 @@ Hover And Click
     Click Element    ${close_element}
 
 Verify that that pictures on the "Top Products" section of the page are clickable and that menu options are accessible
-    [Documentation]    Top products
     Set Selenium Timeout   2s
     Set Selenium Speed     1s
     Open Browser    ${URL}      ${PreferredBrowser}
