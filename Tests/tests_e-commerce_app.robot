@@ -22,11 +22,11 @@ User can land on the home page of the e-commerce app
     e-commerce_playground_app.Go to Home Page
 
 User can search for an item through the search bar in the home page
-    [Tags]    SearchBar
+    [Tags]    Searched item
     e-commerce_playground_app.Search for an item through the search bar in the home page
 
 User can hover over the image displayed when searched item is retrieved and click on it
-    [Tags]    Hover over
+    [Tags]    Searched item
     e-commerce_playground_app.Search for an item through the search bar, hover over its image and click on the image
 
 User can open the drop-down menu "All Categories", choose a category from the drop-down list and click on it
@@ -42,7 +42,7 @@ User can click the "Shop by Category" link and access the categories contained i
     e-commerce_playground_app.Click the Shop by Category link and access one of the categories
 
 User can click each link in the nav bar and access relevant information
-    [Tags]    nav bar
+    [Tags]    Nav bar
     e-commerce_playground_app.Click each link in the nav bar
 
 User can see the carousel change the web page main pictures automatically, alternate between them manually and click on each picture
@@ -58,7 +58,7 @@ User can click on each picture on the "Top Trending Categories" of the home page
     e-commerce_playground_app.Click the pics on the "Top trending categories" of the home page
 
 User can click on the main picture in the "Top Trending Categories" section of the home page
-    [Tags]    main picture in the "Top Trending Categories"
+    [Tags]    "Top Trending Categories"
     e-commerce_playground_app.Click the main pic in the "Top trending categories" section of the home page
 
 User can click on the pictures on the "Top products" section of the page, switch between them with arrow buttons and access the menu options
@@ -66,7 +66,7 @@ User can click on the pictures on the "Top products" section of the page, switch
     e-commerce_playground_app.Click pics on the "Top Products" section of the page
 
 User can click the second and third "Shop now" buttons
-    [Tags]    second and third "Shop now" buttons
+    [Tags]    "Shop now"
     e-commerce_playground_app.Click the second and third "Shop Now" button
 
 User can click on options and pictures on the "Top collection" section of the page, switch between them with arrow buttons and access the menu options
@@ -74,7 +74,7 @@ User can click on options and pictures on the "Top collection" section of the pa
     e-commerce_playground_app.Click links and pictures on the "Top collection" section of the page
 
 User can click on the "Shop now" image below "Top Collection" sub-header
-    [Tags]    "Shop now" image below "Top Collection
+    [Tags]    "Shop now"
     e-commerce_playground_app.Click on the image below "Top Collection" sub header
 
 User can click on the picture on the "Under @99" section of the page and access the menu options
@@ -82,6 +82,6 @@ User can click on the picture on the "Under @99" section of the page and access 
     e-commerce_playground_app.Click links and pictures on the "Under @99" section of the page
 
 User can click on the picture corresponding to one of the blogs and on the link related to the blog's author
-    [Tags]    blog
+    [Tags]    Blog
     e-commerce_playground_app.Click on picture and link to blog's author in the "From the blog" section of the page
 
