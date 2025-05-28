@@ -8,8 +8,8 @@ Test Teardown   End Web Test
 *** Variables ***
 ${BROWSER} =  headlesschrome
 
-#Location of test suite and command to start
-#the Robot Framework C:\Users\HV322VM\OneDrive - EY\Desktop\lambada_testing_ecommerce_playground\Tests> robot -d results tests_e-commerce_app.robot
+#Location of test suite and
+#command to start Robot Framework C:\Users\HV322VM\OneDrive - EY\Desktop\lambada_testing_ecommerce_playground\Tests> robot -d results tests_e-commerce_app.robot
 #To run only tagged test cases use the following command: robot -d results -include HomePage tests_e-commerce_app.robot
 #To perform a dry run where keywords coming from test libraries are not executed (used to validate test data run: robot -d results --dryrun tests_e-commerce_app.robot
 #To use the "ExcludeTests" prerun modifier, use the following syntax:
