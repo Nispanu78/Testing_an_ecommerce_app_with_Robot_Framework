@@ -18,4 +18,5 @@ ${BROWSER} =  headlesschrome
 *** Test Cases ***
 
 User can access his own account page
+    [Tags]    MyAccount
     e-commerce_playground_app_my_account.Click on My Account section of the nav bar
