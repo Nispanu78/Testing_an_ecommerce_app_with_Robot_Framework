@@ -23,6 +23,10 @@ ${BROWSER} =  headlesschrome
 #    ...                e-commerce web application provided by Lambdatest.io
 #    [Tags]    MyAccount
 #    e-commerce_playground_app_my_account.Click on My Account section of the nav bar
+#
+#User can access his own account page and register as a new user
+#    e-commerce_playground_app_my_account.Register a new user
 
-User can access his own account page and register as a new user
-    e-commerce_playground_app_my_account.Register a new user
+#Replace the email of test user before performing this test
+User can send an email via the "Contact us" form if confirmation email is not received within one hour
+    e-commerce_playground_app_my_account.Send a contact form if confirmation email has not been sent
