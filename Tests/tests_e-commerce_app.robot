@@ -18,6 +18,9 @@ ${BROWSER} =  headlesschrome
 *** Test Cases ***
 
 User can land on the home page of the e-commerce app
+    [Documentation]    This is a test suite create for training purposes in order to practice automated testing
+    ...                With Robot Framework and Selenium WebDriver. The system under test consists of a dummy
+    ...                e-commerce web application provided by Lambdatest.io
     [Tags]    HomePage
     e-commerce_playground_app.Go to Home Page
 
