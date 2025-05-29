@@ -1,5 +1,21 @@
 Feature: My Account
-    Scenario Outline: Check that My Account page is accessible
+    Scenario Outline: User can access his own account page
         Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
         And I click on "My account" link
         Then the My Account page is displayed as expected
+
+Feature: My Account
+    Scenario Outline: User can access his own account page and register as a new user
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        And I click on "My account" link
+        Then the My Account page is displayed as expected
+        And When I click on "Continue"
+        And I fill-in all required fields
+        And I check the "Subscribe" radio button
+        And I tick "I have read and agree to the Privacy Policy"
+        And I click on "Continue"
+        Then my account is registered as expected
+        And When I click on "Continue"
+        Then I access "My Account" page

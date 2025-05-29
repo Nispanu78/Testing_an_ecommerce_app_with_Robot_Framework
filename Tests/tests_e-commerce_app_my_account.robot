@@ -17,6 +17,12 @@ ${BROWSER} =  headlesschrome
 
 *** Test Cases ***
 
-User can access his own account page
-    [Tags]    MyAccount
-    e-commerce_playground_app_my_account.Click on My Account section of the nav bar
+#User can access his own account page
+#    [Documentation]    This is a test suite create for training purposes in order to practice automated testing
+#    ...                With Robot Framework and Selenium WebDriver. The system under test consists of a dummy
+#    ...                e-commerce web application provided by Lambdatest.io
+#    [Tags]    MyAccount
+#    e-commerce_playground_app_my_account.Click on My Account section of the nav bar
+
+User can access his own account page and register as a new user
+    e-commerce_playground_app_my_account.Register a new user
