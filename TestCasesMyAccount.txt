@@ -12,10 +12,44 @@ Feature: My Account
         And I click on "My account" link
         Then the My Account page is displayed as expected
         And When I click on "Continue"
-        And I fill-in all required fields
+        And I fill in all required fields
         And I check the "Subscribe" radio button
         And I tick "I have read and agree to the Privacy Policy"
         And I click on "Continue"
         Then my account is registered as expected
         And When I click on "Continue"
         Then I access "My Account" page
+
+Feature: My Account
+    Scenario Outline: User can send a contact form if confirmation email has not been received
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        And I click on "My account" link
+        Then the My Account page is displayed as expected
+        And When I click on "Continue"
+        And I fill in all required fields
+        And I check the "Subscribe" radio button
+        And I tick "I have read and agree to the Privacy Policy"
+        And I click on "Continue"
+        Then my account is not registered as expected because I did not receive the confirmation email
+        And When I click on "Contact Us"
+        Then I access the "Contact Form" page
+        And When I fill-in mandatory fields
+        And click "Submit"
+        Then my form is submitted
+        And When I click on "Continue"
+        Then I am back to the Home Page
+
+Feature: My Account
+    Scenario Outline: User can send replace an already existing email with a new one if he gest a warning that email is already registered
+        Given that I open Chrome Version 136.0.7103.93 (Official Build) (64-bit) and navigate to https://ecommerce-playground.lambdatest.io/index.php?route=common/home
+        And the home page is displayed as expected
+        And I click on "My account" link
+        Then the My Account page is displayed as expected
+        And When I click on "Continue"
+        And I fill in "First Name" field
+        And I fill in "Last Name"
+        And I fill in "E-Mail" field with the email "luigini_my_test2@mail.com"
+        And I get a warning that this email address has already been registered
+        And I changed the email to "luigini_my_test3@mail.com"
+        Then I get not warning and I can register my account with the new email

@@ -7,7 +7,7 @@ Resource        ../TestData/test_data_my_account.robot
 
 *** Variables ***
 #Email is changed automatically to luigini_my_test3@mail.com, if luigini_my_test2@mail.com has been already registered
-${BASE_EMAIL}   luigini_my_test4@mail.com
+${BASE_EMAIL}   luigini_my_test2@mail.com
 
 # Corrected locator for the email input field to use the existing variable
 ${EMAIL_FIELD}       ${Email}
