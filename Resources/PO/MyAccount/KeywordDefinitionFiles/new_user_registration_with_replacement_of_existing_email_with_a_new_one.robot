@@ -83,7 +83,7 @@ Increment Email
 
 Handle Existing Email Warning
     Log To Console    Warning: E-Mail Address is already registered! detected. Attempting to increment email.
-    ${current_email_value}=    Get Element Attribute    ${EMAIL_FIELD}    value
+    ${current_email_value}=    Get element attribute    ${EMAIL_FIELD}  value
     ${new_email}=              Increment Email    ${current_email_value}
     Clear Element Text         ${EMAIL_FIELD}
     Input Text                 ${EMAIL_FIELD}     ${new_email}
@@ -98,9 +98,9 @@ User can send replace an already existing email with a new one if he gest a warn
     Maximize browser window
 
     # Navigate to Registration Form
-    ${MyAccount}=    Get WebElement  css=#widget-navbar-217834 > ul > li:nth-child(6) > a
+    ${MyAccount}=    Get WebElement  //*[@id="widget-navbar-217834"]/ul/li[6]/a
     Mouse over    ${MyAccount}
-    ${Login}=        Get WebElement  css=#widget-navbar-217834 > ul > li:nth-child(6) > ul > li:nth-child(1) > a
+    ${Login}=        Get WebElement  //*[@id="widget-navbar-217834"]/ul/li[6]/ul/li[1]/a
     Click link    ${Login}
     Page should contain    ${MyAccountLoginText}
     Click element    ${AccessRegistrationFormButton}
