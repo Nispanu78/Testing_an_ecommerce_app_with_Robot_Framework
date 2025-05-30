@@ -3,6 +3,7 @@
 Resource   ./PO/MyAccount/KeywordDefinitionFiles/my_account.robot
 Resource   ./PO/MyAccount/KeywordDefinitionFiles/new_user_registration.robot
 Resource   ./PO/MyAccount/KeywordDefinitionFiles/new_user_registration_failed.robot
+Resource   ./PO/Myaccount/KeywordDefinitionFiles/new_user_registration_with_replacement_of_existing_email_with_a_new_one.robot
 
 *** Variables ***
 
@@ -17,3 +18,6 @@ Register a new user
 
 Send a contact form if confirmation email has not been sent
     new_user_registration_failed.User can send a contact form if confirmation email has not been received
+
+User register with previously registered email, gets a warning that email is already registered and choose a new one
+    new_user_registration_with_replacement_of_existing_email_with_a_new_one.User can send replace an already existing email with a new one if he gest a warning that email is already registered
