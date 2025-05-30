@@ -7,7 +7,7 @@ Resource        ../TestData/test_data_my_account.robot
 
 *** Variables ***
 #Email is changed automatically to luigini_my_test3@mail.com, if luigini_my_test2@mail.com has been already registered
-${BASE_EMAIL}        luigini_my_test2@mail.com
+${BASE_EMAIL}   luigini_my_test4@mail.com
 
 # Corrected locator for the email input field to use the existing variable
 ${EMAIL_FIELD}       ${Email}
@@ -79,7 +79,7 @@ Increment Email
 
     ${new_email}=     Catenate    SEPARATOR=    ${new_local_part}${domain_part}
     Log To Console    Original email: ${current_email}, Generated New email: ${new_email}
-    [Return]          ${new_email}
+    RETURN            ${new_email}
 
 Handle Existing Email Warning
     Log To Console    Warning: E-Mail Address is already registered! detected. Attempting to increment email.
@@ -104,6 +104,9 @@ User can send replace an already existing email with a new one if he gest a warn
     Click link    ${Login}
     Page should contain    ${MyAccountLoginText}
     Click element    ${AccessRegistrationFormButton}
+
+     # Add this line to see what value Robot Framework is using for BASE_EMAIL
+    Log To Console    The value of BASE_EMAIL before input is: ${BASE_EMAIL}
 
     # Perform Initial Registration Details Input
     Input Text Using Locator    ${InputTextLocatorFirstName}    ${FirstName}
