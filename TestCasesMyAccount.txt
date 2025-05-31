@@ -52,4 +52,4 @@ Feature: My Account
         And I fill in "E-Mail" field with the email "luigini_my_test2@mail.com"
         And I get a warning that this email address has already been registered
         And I changed the email to "luigini_my_test3@mail.com"
-        Then I get not warning and I can register my account with the new email
+        Then I get no warning and I can register my account with the new email
