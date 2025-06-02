@@ -32,4 +32,4 @@ ${BROWSER} =  headlesschrome
 #    e-commerce_playground_app_my_account.Send a contact form if confirmation email has not been sent
 
 Trying to change the email automatically if I get a warning
-    e-commerce_playground_app_my_account.User register with previously registered email, gets a warning that email is already registered and choose a new one
+    e-commerce_playground_app_my_account.User registers with previously registered email, gets a warning that email is already registered and chooses a new one

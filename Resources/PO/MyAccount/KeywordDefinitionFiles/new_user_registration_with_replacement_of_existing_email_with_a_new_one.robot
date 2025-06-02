@@ -31,7 +31,7 @@ Generate Next Email
     ${new_email}=      Set Variable    ${base_email}${next_number}@${domain_part}
     RETURN    ${new_email}
 
-User can send replace an already existing email with a new one if he gest a warning that email is already registered
+User can replace an already existing email with a new one if he get a warning that the inserted email is already registered
     [Documentation]    Click icons
     Set Selenium Timeout    2s
     Set Selenium Speed       1s
@@ -66,7 +66,7 @@ User can send replace an already existing email with a new one if he gest a warn
     ${current_email}=    Set Variable    ${BASE_EMAIL}
 
     FOR    ${attempt}    IN RANGE    1    100    # Maximum 100 attempts to avoid infinite loop
-        Log    Attempting to register with email: ${current_email}
+        Log to console    Attempting to register with email: ${current_email}
 
         # Only this line is in the FOR loop - input email and submit
         Input Text Using Locator    ${Email}    ${current_email}
@@ -80,16 +80,16 @@ User can send replace an already existing email with a new one if he gest a warn
         ...    Wait Until Element Is Visible    ${EMAIL_WARNING_MESSAGE}    timeout=5s
 
         IF    ${warning_present}
-            Log    Warning detected! Email ${current_email} is already registered.
+            Log to console    Warning detected! Email ${current_email} is already registered.
             ${current_email}=    Generate Next Email    ${current_email}
-            Log    Trying next email: ${current_email}
+            Log to console    Trying next email: ${current_email}
 
             # Clear the email field for next attempt
             Clear Element Text    ${Email}
 
             # Continue the loop with the new email
         ELSE
-            Log    Successfully registered with email: ${current_email}
+            Log to console    Successfully registered with email: ${current_email}
             Page should contain    ${AccountConfirmationCreation}
             BREAK
         END
