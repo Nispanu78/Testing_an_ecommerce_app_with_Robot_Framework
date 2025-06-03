@@ -905,4 +905,16 @@ else:
 
 # __name__ is a built-in global variable in Python
 
+# There is a variant of the import statement that imports names from a module directly into the importing module’s
+# namespace. For example:
+
+# from fibo import fib, fib2
+# fib(500)
+
+# 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
+
+# If the module name is followed by as, then the name following as is bound directly to the imported module.
+
+# import fibo as fib
+
 
