@@ -4,9 +4,9 @@
 
 
 
-# -----------------------------
-# Conditional statements
-# -----------------------------
+# --------------------------------------------------------
+# CONDITIONAL STATEMENTS
+# --------------------------------------------------------
 
 
 
@@ -99,9 +99,11 @@ if 0 < number < 10:
 # intricate business rules or system states.
 
 
-# -----------------------------------------------------------------------------------------------
-# Iterating over a sequence with for and while loop
-# -----------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------
+# ITERATING OVER A SEQUENCE WITH FOR AND WHILE LOOP
+# --------------------------------------------------------
+
 
 
 # B. Iteration with for Loops
@@ -389,15 +391,15 @@ for n in range(2, 10):
 # directly impacting the quality and maintainability of automation scripts.
 
 # Usage Type	                        Example Code	                                                                Explanation/Context
-# for i in range(stop)	            for i in range(3): print(i)	                                                    Iterates from 0 up to (but not including) stop.
+# for i in range(stop)	                for i in range(3): print(i)	                                                    Iterates from 0 up to (but not including) stop.
 # for i in range(start, stop)	        for i in range(1, 4): print(i)	                                                Iterates from start up to (but not including) stop.
-# for i in range(start, stop, step)	for i in range(0, 10, 2): print(i)	                                            Iterates from start, incrementing by step, up to stop.
+# for i in range(start, stop, step)	    for i in range(0, 10, 2): print(i)	                                            Iterates from start, incrementing by step, up to stop.
 # for item in my_list	                my_list = ; for item in my_list: print(item)	                                Iterates directly over each element in a list.
-# for item in my_tuple	            my_tuple = (10, 20); for item in my_tuple: print(item)	                        Iterates directly over each element in a tuple.
-# for char in my_string	            my_string = "abc"; for char in my_string: print(char)	                        Iterates directly over each character in a string.
+# for item in my_tuple	                my_tuple = (10, 20); for item in my_tuple: print(item)	                        Iterates directly over each element in a tuple.
+# for char in my_string	                my_string = "abc"; for char in my_string: print(char)	                        Iterates directly over each character in a string.
 # for key in my_dict	                my_dict = {'a':1, 'b':2}; for key in my_dict: print(key)	                    Iterates over the keys of a dictionary (default behavior).
-# for value in my_dict.values()	    my_dict = {'a':1, 'b':2}; for value in my_dict.values(): print(value)	        Iterates specifically over the values of a dictionary.
-# for key, value in my_dict.items()	my_dict = {'a':1, 'b':2}; for k, v in my_dict.items(): print(f"{k}:{v}")	    Iterates over key-value pairs of a dictionary.
+# for value in my_dict.values()	        my_dict = {'a':1, 'b':2}; for value in my_dict.values(): print(value)	        Iterates specifically over the values of a dictionary.
+# for key, value in my_dict.items()	    my_dict = {'a':1, 'b':2}; for k, v in my_dict.items(): print(f"{k}:{v}")	    Iterates over key-value pairs of a dictionary.
 # for item in my_set	                my_set = {1, 2, 3}; for item in my_set: print(item)	                            Iterates over unique elements in a set (order not guaranteed).
 # for line in file_object	            with open('file.txt') as f: for line in f: print(line.strip())	                Iterates line by line over the contents of a file.
 # for x, y in list_of_tuples	        points = [(1,2), (3,4)]; for x, y in points: print(x+y)	                        Unpacks elements from inner iterables (e.g., tuples in a list).
@@ -484,22 +486,22 @@ while num <= 5:
 # Busy-wait loop: To create an infinite loop that simply idles until an external interruption (e.g., Ctrl+C).
 # Python
 
-while True:
-    pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+# while True:
+#     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
 
 # Minimal classes: To define an empty class that can be extended later.
 # Python
 
-class MyEmptyClass:
-    pass
+# class MyEmptyClass:
+#     pass
 
 
 # Placeholder for unimplemented code: During development, pass can be used as a temporary placeholder in functions or
 # conditional bodies, ensuring the code remains syntactically correct while the logic is still being designed.
 # Python
 
-def initlog(*args):
-    pass   # Remember to implement this!
+# def initlog(*args):
+#     pass   # Remember to implement this!
 
 # The else Clause in while Loops
 # Similar to for loops, a while loop can also have an else block associated with it. This else block executes if the loop
@@ -610,9 +612,9 @@ while outer_num <= 3:
 
 
 
-# -----------------------------
+# --------------------------------------------------------
 # FUNCTIONS
-# -----------------------------
+# --------------------------------------------------------
 
 
 
@@ -668,9 +670,9 @@ print(f(6))
 
 
 
-# -----------------------------
-# Data Types
-# -----------------------------
+# --------------------------------------------------------
+# DATA TYPES
+# --------------------------------------------------------
 
 
 
@@ -760,9 +762,9 @@ for k, v in knights.items():
 
 
 
-# -----------------------------
-# Looping
-# -----------------------------
+# --------------------------------------------------------
+# LOOPING TECHNIQUES
+# --------------------------------------------------------
 
 
 
@@ -855,9 +857,9 @@ print("Squares > 10 (with walrus):", squares_walrus)
 
 
 
-# -----------------------------
-# MODULES
-# -----------------------------
+# --------------------------------------------------------
+# MODULES (PYHON FILES) AND PACKAGES (COLLECTIONS OF MODULES)
+# --------------------------------------------------------
 
 
 
@@ -918,3 +920,366 @@ else:
 # import fibo as fib
 
 
+
+# --------------------------------------------------------
+# INPUT/OUTPUT
+# --------------------------------------------------------
+
+
+
+# -----------------------------
+# Formatted String literals
+# -----------------------------
+
+# To use formatted string literals, begin a string with f or F before the opening quotation mark or triple quotation
+# mark. Inside this string, you can write a Python expression between { and } characters that can refer to
+# variables or literal values.
+
+year = 2016
+event = 'Referendum'
+print(f'Results of the {year} {event}')
+
+# When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can
+# convert any value to a string with the repr() or str() functions.
+# The str() function is meant to return representations of values which are fairly human-readable, while repr()
+# is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is
+# no equivalent syntax).
+
+# -----------------------------
+# The String format() Method
+# -----------------------------
+
+# Basic usage of the str.format() method looks like this:
+
+print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+
+# result will be:
+# We are the knights who say "Ni!"
+
+# -----------------------------
+#  Reading and Writing Files
+# -----------------------------
+
+# open() returns a file object, and is most commonly used with two positional arguments and one keyword argument:
+
+# open(filename, mode, encoding=None)
+
+f = open('workfile', 'w', encoding="utf-8")
+
+# The first argument is a string containing the filename. The second argument is another string containing a few
+# characters describing the way in which the file will be used. mode can be 'r' when the file will only be read, 'w'
+# for only writing (an existing file with the same name will be erased), and 'a' opens the file for appending; any data
+# written to the file is automatically added to the end. 'r+' opens the file for both reading and writing. The mode
+# argument is optional; 'r' will be assumed if it’s omitted.
+
+# Normally, files are opened in text mode, that means, you read and write strings from and to the file, which are encoded
+# in a specific encoding. If encoding is not specified, the default is platform dependent (see open()). Because UTF8 is
+# the modern de-facto standard, encoding="utf-8" is recommended unless you know that you need to use a
+# different encoding
+
+# It is good practice to use the with keyword when dealing with file objects. The advantage is that the file is properly
+# closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than
+# writing equivalent try-finally blocks:
+
+with open('workfile', encoding="utf-8") as f:
+    read_data = f.read()
+# We can check that the file has been automatically closed.
+    f.closed
+
+#     Result will be
+# True
+
+# After a file object is closed, either by a with statement or by calling f.close(), attempts to use the file object will
+# automatically fail.
+
+# To read a file’s contents, call f.read(size), which reads some quantity of data and returns it as a string (in text
+# mode) or bytes object (in binary mode). size is an optional numeric argument. When size is omitted or negative, the
+# entire contents of the file will be read and returned; it’s your problem if the file is twice as large as your machine’s
+# memory. Otherwise, at most size characters (in text mode) or size bytes (in binary mode) are read and returned. If
+# the end of the file has been reached, f.read() will return an empty string ('')
+
+# f.readline() reads a single line from the file; a newline character (\n) is left at the end of the string, and is only
+# omitted on the last line of the file if the file doesn’t end in a newline. This makes the return value unambiguous; if
+# f.readline() returns an empty string, the end of the file has been reached, while a blank line is represented by
+# '\n', a string containing only a single newline.
+
+f.readline()
+# 'This is the first line of the file.\n'
+f.readline()
+# 'Second line of the file\n'
+f.readline()
+# ''
+
+# For reading lines from a file, you can loop over the file object. This is memory efficient, fast, and leads to simple
+# code:
+
+for line in f:
+    print(line, end='')
+    ...
+
+# Result
+# This is the first line of the file.
+# Second line of the file
+
+# -------------------------------- Other examples
+
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+    for line in lines:
+        print(line.rstrip())
+
+# How to write to an empty file:
+
+filename = 'programming.txt'
+
+with open(filename, 'w') as file_object:
+    file_object.write("I love programming.")
+
+# When you open a file in append mode,
+# Python does not erase the file before returning the file object. Any lines you
+# write to the file will be added at the end of the file. If the file does not exist
+# yet, Python will create an empty file for you
+
+with open(filename, 'a') as file_object:
+    file_object.write("I also love finding meaning in large datasets.\n")
+    file_object.write("I love creating apps that can run in a browser.\n")
+
+# -------------------------------- JSON (used for data exchange)
+
+# Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows
+# you to use the popular data interchange format called JSON (JavaScript Object Notation). The standard module called
+# json can take Python data hierarchies, and convert them to string representations; this process is called serializing.
+# Reconstructing the data from the string representation is called deserializing. Between serializing and deserializing,
+# the string representing the object may have been stored in a file or data, or sent over a network connection to some
+# distant machine.
+
+# -------------------------------- How to see the JSON string representation
+
+# If you have an object x, you can view its JSON string representation with a simple line of code:
+
+import json
+x = [1, 'simple', 'list']
+json.dumps(x)
+# Result will be:
+'[1, "simple", "list"]'
+
+# -------------------------------- Serialization
+
+# Another variant of the dumps() function, called dump(), simply serializes the object to a text file. So if f is a text
+# file object opened for writing, we can do this:
+
+json.dump(x, f)
+
+# -------------------------------- Deserialization
+
+x = json.load(f)
+
+
+
+# --------------------------------------------------------
+# SYNTAX ERRORS AND EXCEPTIONS
+# --------------------------------------------------------
+
+# There are (at least) two distinguishable kinds of errors: syntax errors and exceptions.
+
+# -----------------------------
+#  SYNTAX ERRORS
+# -----------------------------
+
+# Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are
+# still learning Python:
+
+# while True print('Hello world')
+#
+# File "<stdin>", line 1
+# while True print('Hello world')
+# ^^^^^
+# SyntaxError: invalid syntax
+
+# The parser repeats the offending line and displays little arrows pointing at the place where the error was detected.
+# Note that this is not always the place that needs to be fixed. In the example, the error is detected at the function
+# print(), since a colon (':') is missing just before it.
+# The file name (<stdin> in our example) and line number are printed so you know where to look in case the input
+# came from a file.
+
+# -----------------------------
+#  EXCEPTIONS
+# -----------------------------
+
+# Errors detected during execution are called exceptions and are not unconditionally fatal
+
+# -----------------------------
+#  HANDLING EXCEPTIONS
+# -----------------------------
+
+while True:
+    try:
+        x = int(input("Please enter a number: "))
+        break
+    except ValueError:
+        print("Oops! That was no valid number. Try again...")
+
+# The try statement works as follows.
+    # • First, the try clause (the statement(s) between the try and except keywords) is executed.
+    # • If no exception occurs, the except clause is skipped and execution of the try statement is finished.
+    # • If an exception occurs during execution of the try clause, the rest of the clause is skipped. Then, if its type
+    # matches the exception named after the except keyword, the except clause is executed, and then execution
+    # continues after the try/except block.
+#     • If an exception occurs which does not match the exception named in the except clause, it is passed on to outer
+#       try statements; if no handler is found, it is an unhandled exception and execution stops with an error message.
+
+# An except clause may name multiple exceptions as a parenthesized tuple, for
+# example:
+# ... except (RuntimeError, TypeError, NameError):
+# ... pass
+
+# The raise statement allows the programmer to force a specified exception to occur. For example:
+
+raise NameError('HiThere')
+# Traceback (most recent call last):
+# File "<stdin>", line 1, in <module>
+# raise NameError('HiThere')
+# NameError: HiThere
+
+# -----------------------------
+#  EXCEPTIONS CHAINING
+# -----------------------------
+
+# If an unhandled exception occurs inside an except section, it will have the exception being handled attached to it
+# and included in the error message:
+
+try:
+    open("database.sqlite")
+except OSError:
+    raise RuntimeError("unable to handle error")
+
+# Traceback (most recent call last):
+# File "<stdin>", line 2, in <module>
+# open("database.sqlite")
+# ~~~~^^^^^^^^^^^^^^^^^^^
+# FileNotFoundError: [Errno 2] No such file or directory: 'database.sqlite'
+#
+# During handling of the above exception, another exception occurred:
+# Traceback (most recent call last):
+# File "<stdin>", line 4, in <module>
+# raise RuntimeError("unable to handle error")
+# RuntimeError: unable to handle error
+
+# To indicate that an exception is a direct consequence of another, the raise statement allows an optional from clause
+
+def func():
+    raise ConnectionError
+
+    try:
+        func()
+    except ConnectionError as exc:
+        raise RuntimeError('Failed to open database') from exc
+
+# Traceback (most recent call last):
+# File "<stdin>", line 2, in <module>
+# func()
+# ~~~~^^
+# File "<stdin>", line 2, in func
+# ConnectionError
+
+# The above exception was the direct cause of the following exception:
+# Traceback (most recent call last):
+#
+# File "<stdin>", line 4, in <module>
+# raise RuntimeError('Failed to open database') from exc
+# RuntimeError: Failed to open database
+
+# -----------------------------
+#  FINALLY
+# -----------------------------
+
+# If a finally clause is present, the finally clause will execute as the last task before the try statement completes.
+# The finally clause runs whether or not the try statement produces an exception.
+
+try:
+    raise KeyboardInterrupt
+finally:
+    print('Goodbye, world!')
+
+# Goodbye, world!
+# Traceback (most recent call last):
+# File "<stdin>", line 2, in <module>
+# raise KeyboardInterrupt
+# KeyboardInterrupt
+
+
+
+# --------------------------------------------------------
+# CLASSES
+# --------------------------------------------------------
+
+
+
+# Creating a new class creates a new type of object,
+# allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining
+# its state. Class instances can also have methods (defined by its class) for modifying its state.
+
+# The class inheritance mechanism allows multiple base classes, a
+# derived class can override any methods of its base class or classes, and a method can call the method of a base class
+# with the same name.
+
+# Classes are created at runtime, and can be modified further after creation.
+
+ # As in Smalltalk, classes themselves are objects.
+
+# -----------------------------
+#  NAMESPACE
+# -----------------------------
+
+# A NAMESPACE MAPS A NAME TO AN OBJECT
+
+# A namespace is a mapping from names to objects. Most namespaces are currently implemented as Python dictionaries,
+# but that’s normally not noticeable in any way (except for performance), and it may change in the future. Examples
+# of namespaces are: the set of built-in names (containing functions such as abs(), and built-in exception names);
+# the global names in a module; and the local names in a function invocation. In a sense the set of attributes of an
+# object also form a namespace. The important thing to know about namespaces is that there is absolutely no relation
+# between names in different namespaces; for instance, two different modules may both define a function maximize
+# without confusion — users of the modules must prefix it with the module name
+
+# -----------------------------
+#  ATTRIBUTES
+# -----------------------------
+
+# By the way, I use the word attribute for any name following a dot — for example, in the expression z.real, real
+# is an attribute of the object z
+
+# Strictly speaking, references to names in modules are attribute references: in the
+# expression modname.funcname, modname is a module object and funcname is an attribute of it. In this case there
+# happens to be a straightforward mapping between the module’s attributes and the global names defined in the module:
+# they share the same namespace!
+
+# -----------------------------
+#  SCOPE
+# -----------------------------
+
+# Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4
+# nested scopes whose namespaces are directly accessible:
+#
+# • the innermost scope, which is searched first, contains the local names
+# • the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contain
+# non-local, but also non-global names
+# • the next-to-last scope contains the current module’s global names
+# • the outermost scope (searched last) is the namespace containing built-in names
+
+# Usually, the local scope references the local names of the (textually) current function. Outside functions, the local
+# scope references the same namespace as the global scope: the module’s namespace. Class definitions place yet another
+# namespace in the local scope.
+
+# It is important to realize that scopes are determined textually: the global scope of a function defined in a module
+# is that module’s namespace, no matter from where or by what alias the function is called.
+
+# -----------------------------
+#  ASSIGNEMENT OF NAMES TO OBJECTS
+# -----------------------------
+
+# Assignments do not copy data — they just bind names to objects. The same is true for
+# deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact,
+# all operations that introduce new names use the local scope: in particular, import statements and function definitions
+# bind the module or function name in the local scope.
