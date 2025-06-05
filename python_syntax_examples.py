@@ -19,1100 +19,1100 @@
 
 # Python
 
-x = 3
-if x >= 2:
-    print("x is bigger than or equal to 2")
-
-# This would output: x is bigger than or equal to 2.
-
-# The if-else construct extends this by providing an alternative execution path. If the if condition is True,
-# its corresponding block runs; otherwise, the else block executes. This is useful for binary decisions, such as
-# determining shipping fees based on an order total:
-
-# Python
-
-order_total = 215.00
-if order_total >= 150:
-    print("You got free shipping!")
-else:
-    print("The shipping fee is $5.00")
-
-# This example would print: You got free shipping!
+# x = 3
+# if x >= 2:
+#     print("x is bigger than or equal to 2")
 #
-# For handling multiple, mutually exclusive conditions, Python employs if-elif-else chains. This structure allows for
-# sequential testing of various conditions. The first elif (or initial if) condition that evaluates to True will have
-# its corresponding block executed, and all subsequent elif and else blocks will be skipped. The else clause is optional
-# and serves as a catch-all, executing its block if none of the preceding if or elif conditions are met. This sequence
-# is Python('s idiomatic way to manage multi-way branching, effectively serving as a substitute for switch or case statements '
-# 'found in other programming languages, thereby helping to avoid excessive indentation and improving code readability.)
-
-# Consider an example that categorizes an integer input:
+# # This would output: x is bigger than or equal to 2.
 #
-# Python
-
-x = int(input("Please enter an integer: "))
-if x < 0:
-    x = 0
-    print('Negative changed to zero')
-elif x == 0:
-    print('Zero')
-elif x == 1:
-    print('Single')
-else:
-    print('More')
-
-# If the user enters 42, the output would be More. The syntax rules for this chain are strict: there must always be one
-# and only one if statement at the beginning, followed by a logical expression. There can be one or more elif statements,
-# each requiring a logical expression. The else statement is optional, must follow all elifs, and cannot contain a logical
-# expression itself, as its execution is implicitly dependent on all prior conditions being False.
-
-# Nested conditionals involve placing if statements inside other if or elif blocks. This allows for handling more granular
-# or dependent conditions, creating a hierarchical decision structure. For example, checking if a number is within a specific
-# range:
+# # The if-else construct extends this by providing an alternative execution path. If the if condition is True,
+# # its corresponding block runs; otherwise, the else block executes. This is useful for binary decisions, such as
+# # determining shipping fees based on an order total:
 #
-# Python
-
-number = 7
-if number > 0:
-    if number < 10:
-        print("The number is between 0 and 10!")
-
-# This code would print: The number is between 0 and 10!
-
-# Python also supports a more readable Pythonic chained comparison syntax for checking if a value falls within a range.
-# This simplifies the expression and enhances clarity. The previous nested example can be rewritten more concisely:
+# # Python
 #
-# Python
-
-if 0 < number < 10:
-    print("The number is between 0 and 10!")
-
-# This is functionally equivalent to if number > 0 and number < 10, but its conciseness and resemblance to mathematical
-# notation improve code comprehension.
-
-# The design choice to offer if-elif-else as an alternative to switch/case and to support chained comparisons underscores
-# Python('s emphasis on readability and reduced syntactic verbosity. For a senior automation engineer, these language '
-# 'features are not merely stylistic preferences; they directly contribute to more maintainable and less error-prone '
-# 'conditional logic within complex automation workflows. This directly impacts debugging efficiency and the overall clarity '
-# 'of the code. By simplifying complex decision trees and making the flow of logic immediately apparent, Python's
-# approach enables faster comprehension and easier debugging of automation scripts, which is crucial when dealing with
-# intricate business rules or system states.
-
-
-
-# --------------------------------------------------------
-# ITERATING OVER A SEQUENCE WITH FOR AND WHILE LOOP
-# --------------------------------------------------------
-
-
-
-# B. Iteration with for Loops
-# Python's for statement is designed for iterating over items of any sequence or other iterable object in the order they appear, '
-# 'a distinct approach from traditional for loops in languages like C or Pascal that often iterate over arithmetic progressions.)
-
-# -------------------------------------
-# for loop with simple range() function
-# -------------------------------------
-
-# Iterating with range(): Generating Numeric Sequences
-# The built-in range() function is highly useful for generating sequences of numbers, which is particularly effective for
-# iterating a specific number of times or over indices. It returns an iterable object, which is memory-efficient as it does
-# not create the full list of numbers in memory, generating them on demand.
+# order_total = 215.00
+# if order_total >= 150:
+#     print("You got free shipping!")
+# else:
+#     print("The shipping fee is $5.00")
 #
-# range(stop): Generates numbers starting from 0 up to (but not including) the stop value.
-# Python
-
-for i in range(3):
-    print(i)
-# Output:
-# 0
-# 1
-# 2
-
-# ----------------------------------------------------
-# for loop with range() function that starts and stops
-# ----------------------------------------------------
-
-# range(start, stop): Generates numbers from start up to (but not including) stop.
-# Python
-
-print(list(range(5, 10)))
-
-# -----------------------------------------------------------------------
-# for loop with range() function that starts, stops and increment by step
-# -----------------------------------------------------------------------
-
-# range(start, stop, step): Generates numbers from start, incrementing (or decrementing) by step, up to (but not including) stop.
-# Python
-
-print(list(range(0, 10, 3)))
-# Output:
-print(list(range(-10, -100, -30)))
-# Output: [-10, -40, -70]
-
-# -------------------------------------------------------
-# for loop that iterates over a sequence and its indices
-# -------------------------------------------------------
-
-# Iterating Over Indices: Combining range() with len() is a common pattern to iterate over the indices of a sequence,
-# allowing access to both the index and the element.
-# Python
-
-a = ['Mary', 'had', 'a', 'little', 'lamb']
-for i in range(len(a)):
-    print(i, a[i])
-
-# Output:
-# 0 Mary
-# 1 had
-# 2 a
-# 3 little
-# 4 lamb
-
-# --------------------------------------------------
-# for loop that iterates over sequences and mappings
-# --------------------------------------------------
-
-# Python's for statement directly iterates over the items of any iterable, making it highly versatile for different '
-# 'data structures.)
-
-# Lists: Iterates through each element in the list.
-# Python
-
-words = ['cat', 'window', 'defenestrate']
-for w in words:
-    print(w, len(w))
-
-# Output:
-# cat 3
-# window 6
-# defenestrate 12
-
-# -----------------------------------
-# for loop that iterates over a tuple
-# -----------------------------------
-
-# Tuples: Iteration over tuples is very similar to lists, processing each element in sequence. It is also possible to
-# unpack elements from a list of tuples directly within the loop.
-# Python
-
-x = (10, 20, 30)
-for var in x:
-    print(var)
-
-# Output:
-# 10
-# 20
-# 30
-
-points = [(1,2), (3,4)]
-for a, b in points:
-    print(f"{a} plus {b} equals {a+b}")
-
-# Output:
-# 1 plus 2 equals 3
-# 3 plus 4 equals 7
-
-# ------------------------------------
-# for loop that iterates over a string
-# ------------------------------------
-
-# Strings: Iterates through each character in the string.
-# Python
-
-for char in "Python":
-    print(char)
-
-# Output:
-# P
-# y
-# t
-# h
-# o
-# n
-
-# ----------------------------------------
-# for loop that iterates over a dictionary
-# ----------------------------------------
-
-# Dictionary Keys (Default): When iterating directly over a dictionary, the loop processes its keys by default.
-# Python
-
-users = {'Hans': 'active', 'Éléonore': 'inactive'}
-for user in users:
-    print(user)
-# Output:
-# Hans
-# Éléonore
-
-# Dictionary Values: The .values() method can be used to iterate specifically over the values of a dictionary.
-# Python
-
-for status in users.values():
-    print(status)
-
-# Output:
-# active
-# inactive
-
-# Dictionary Items (Key-Value Pairs): The .items() method is used to iterate over both keys and values simultaneously,
-# unpacking them into separate loop variables.
-# Python
-
-stocks = { 'AAPL': 187.31, 'MSFT': 124.06 }
-for key, value in stocks.items():
-    print(f"{key} : {value}")
-
-# Output:
-# AAPL : 187.31
-# MSFT : 124.06
-
-
-# A critical consideration for senior automation engineers is the important note on modifying collections during iteration.
-# Modifying a collection (e.g., adding or deleting items) while iterating over it can lead to subtle bugs or runtime errors,
-# such as RuntimeError: dictionary changed size during iteration. This common pitfall can cause unpredictable behavior,
-# including skipped elements, which are notoriously difficult to debug in complex automation scripts. When an iterator is
-# active and the underlying collection's size or structure changes, the iterator's internal state can become invalid. F
-# or automation, where scripts frequently manipulate data structures like lists of tasks, dictionaries of configurations,
-# or sets of unique identifiers, such issues can lead to automation failures that are hard to reproduce. It is generally safer
-# and more straightforward to iterate over a copy of the collection or to build a new collection to ensure the robustness and
-# predictability of automation workflows. A senior engineer demonstrates expertise by proactively avoiding these issues through
-# consistent application of defensive programming strategies.
-
-# Python
-
-users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
-
-# Strategy: Iterate over a copy to safely delete inactive users
-for user, status in users.copy().items():
-    if status == 'inactive':
-        del users[user]
-print(users)
-
-# Output: {'Hans': 'active', '景太郎': 'active'}
-
-# Strategy: Create a new collection for active users
-active_users = {}
-for user, status in users.items():
-    if status == 'active':
-        active_users[user] = status
-print(active_users)
-# Output: {'Hans': 'active', '景太郎': 'active'}
-
-# ----------------------------------------
-# for loop with break and continue
-# ----------------------------------------
-
-# Controlling for Loop Flow: break and continue
-# Loop control statements provide fine-grained management over iteration.
+# # This example would print: You got free shipping!
+# #
+# # For handling multiple, mutually exclusive conditions, Python employs if-elif-else chains. This structure allows for
+# # sequential testing of various conditions. The first elif (or initial if) condition that evaluates to True will have
+# # its corresponding block executed, and all subsequent elif and else blocks will be skipped. The else clause is optional
+# # and serves as a catch-all, executing its block if none of the preceding if or elif conditions are met. This sequence
+# # is Python('s idiomatic way to manage multi-way branching, effectively serving as a substitute for switch or case statements '
+# # 'found in other programming languages, thereby helping to avoid excessive indentation and improving code readability.)
 #
-# The break statement immediately terminates the innermost enclosing for or while loop. Execution then resumes at the first
-# statement after the loop. It is typically used within a conditional statement to exit the loop once a desired condition is
-# met, avoiding unnecessary further iterations.
+# # Consider an example that categorizes an integer input:
+# #
+# # Python
 #
-# Python
-
-for n in range(2, 10):
-    for x in range(2, n):
-        if n % x == 0:
-            print(f"{n} equals {x} * {n//x}")
-            break # Exits the inner loop
-# Output:
-# 4 equals 2 * 2
-# 6 equals 2 * 3
-# 8 equals 2 * 4
-# 9 equals 3 * 3
-
-# This example finds factors for numbers between 2 and 9. When a factor x is found for n, the factorization is printed,
-# and break exits the inner for loop, moving to the next n in the outer loop.
+# x = int(input("Please enter an integer: "))
+# if x < 0:
+#     x = 0
+#     print('Negative changed to zero')
+# elif x == 0:
+#     print('Zero')
+# elif x == 1:
+#     print('Single')
+# else:
+#     print('More')
 #
-# The continue statement skips the rest of the current iteration of the loop and proceeds to the next iteration. Like break,
-# it is typically used within a conditional statement.
+# # If the user enters 42, the output would be More. The syntax rules for this chain are strict: there must always be one
+# # and only one if statement at the beginning, followed by a logical expression. There can be one or more elif statements,
+# # each requiring a logical expression. The else statement is optional, must follow all elifs, and cannot contain a logical
+# # expression itself, as its execution is implicitly dependent on all prior conditions being False.
 #
-# Python
-
-for num in range(2, 10):
-    if num % 2 == 0:
-        print(f"Found an even number {num}")
-        continue # Skips the rest of this iteration
-    print(f"Found an odd number {num}")
-
-# Output:
-# Found an even number 2
-# Found an odd number 3
-# Found an even number 4
-# Found an odd number 5
-# Found an even number 6
-# Found an odd number 7
-# Found an even number 8
-# Found an odd number 9
-
-# In this example, if num is even, it prints "Found an even number" and continues to the next num without executing the
-# subsequent print statement in the same iteration.
+# # Nested conditionals involve placing if statements inside other if or elif blocks. This allows for handling more granular
+# # or dependent conditions, creating a hierarchical decision structure. For example, checking if a number is within a specific
+# # range:
+# #
+# # Python
 #
-# The else Clause in for Loops
-# Both for and while loops can have an optional else clause. This else block executes only if the loop completes all its
-# iterations without encountering a break statement. This is particularly useful for scenarios where one needs to confirm
-# if a loop finished its task completely or was interrupted.
+# number = 7
+# if number > 0:
+#     if number < 10:
+#         print("The number is between 0 and 10!")
 #
-# Python
-
-for n in range(2, 10):
-    for x in range(2, n):
-        if n % x == 0:
-            print(n, 'equals', x, '*', n//x)
-            break
-    else: # This else belongs to the inner for loop
-        print(n, 'is a prime number')
-
-# Output:
-# 2 is a prime number
-# 3 is a prime number
-# 4 equals 2 * 2
-# 5 is a prime number
-# 6 equals 2 * 3
-# 7 is a prime number
-# 8 equals 2 * 4
-# 9 equals 3 * 3
-
-# In this example, the inner for loop attempts to find a factor for n. If a factor is found, break is executed, and the
-# else clause of the inner for loop is skipped. If no factor is found (meaning the inner loop completes all its iterations),
-# the else clause executes, indicating that n is a prime number.
+# # This code would print: The number is between 0 and 10!
 #
-# Nested for Loops
-# Nested for loops involve placing one or more for loops inside another. This structure is common for processing multi-dimensional
-# data structures, such as matrices, or for generating combinations of elements from multiple iterables. The prime number
-# example above effectively demonstrates the use of nested for loops.
+# # Python also supports a more readable Pythonic chained comparison syntax for checking if a value falls within a range.
+# # This simplifies the expression and enhances clarity. The previous nested example can be rewritten more concisely:
+# #
+# # Python
 #
-# Must-have Table: for Loop Iteration Examples Across Data Structures
-# The following table provides a concise reference for common iteration patterns across fundamental Python data structures,
-# which is invaluable for a senior engineer needing to quickly recall or implement specific iteration logic. Mastering these
-# idiomatic ways of iterating over various data types is fundamental for writing efficient, readable, and Pythonic code,
-# directly impacting the quality and maintainability of automation scripts.
-
-# Usage Type	                        Example Code	                                                                Explanation/Context
-# for i in range(stop)	                for i in range(3): print(i)	                                                    Iterates from 0 up to (but not including) stop.
-# for i in range(start, stop)	        for i in range(1, 4): print(i)	                                                Iterates from start up to (but not including) stop.
-# for i in range(start, stop, step)	    for i in range(0, 10, 2): print(i)	                                            Iterates from start, incrementing by step, up to stop.
-# for item in my_list	                my_list = ; for item in my_list: print(item)	                                Iterates directly over each element in a list.
-# for item in my_tuple	                my_tuple = (10, 20); for item in my_tuple: print(item)	                        Iterates directly over each element in a tuple.
-# for char in my_string	                my_string = "abc"; for char in my_string: print(char)	                        Iterates directly over each character in a string.
-# for key in my_dict	                my_dict = {'a':1, 'b':2}; for key in my_dict: print(key)	                    Iterates over the keys of a dictionary (default behavior).
-# for value in my_dict.values()	        my_dict = {'a':1, 'b':2}; for value in my_dict.values(): print(value)	        Iterates specifically over the values of a dictionary.
-# for key, value in my_dict.items()	    my_dict = {'a':1, 'b':2}; for k, v in my_dict.items(): print(f"{k}:{v}")	    Iterates over key-value pairs of a dictionary.
-# for item in my_set	                my_set = {1, 2, 3}; for item in my_set: print(item)	                            Iterates over unique elements in a set (order not guaranteed).
-# for line in file_object	            with open('file.txt') as f: for line in f: print(line.strip())	                Iterates line by line over the contents of a file.
-# for x, y in list_of_tuples	        points = [(1,2), (3,4)]; for x, y in points: print(x+y)	                        Unpacks elements from inner iterables (e.g., tuples in a list).
-
-# -------------------------------------
-# while loop
-# -------------------------------------
-
-# C. Conditional Repetition: while Loops
-# The while loop is a control flow statement that repeatedly executes a block of code as long as a given condition remains True.
-# The condition is evaluated at the beginning of each iteration.
+# if 0 < number < 10:
+#     print("The number is between 0 and 10!")
 #
-# A basic while loop structure is straightforward:
+# # This is functionally equivalent to if number > 0 and number < 10, but its conciseness and resemblance to mathematical
+# # notation improve code comprehension.
 #
-# Python
-
-count = 0
-while count < 5:
-    print(count)
-    count += 1
-
-# Output:
-# 0
-# 1
-# 2
-# 3
-# 4
-
-# This loop continues as long as count is less than 5. In each iteration, count is printed and then incremented.
+# # The design choice to offer if-elif-else as an alternative to switch/case and to support chained comparisons underscores
+# # Python('s emphasis on readability and reduced syntactic verbosity. For a senior automation engineer, these language '
+# # 'features are not merely stylistic preferences; they directly contribute to more maintainable and less error-prone '
+# # 'conditional logic within complex automation workflows. This directly impacts debugging efficiency and the overall clarity '
+# # 'of the code. By simplifying complex decision trees and making the flow of logic immediately apparent, Python's
+# # approach enables faster comprehension and easier debugging of automation scripts, which is crucial when dealing with
+# # intricate business rules or system states.
 #
-# Controlling while Loop Flow: break and continue
-# Similar to for loops, while loops also support break and continue statements for flow control.
 #
-# The break statement functions identically to its use in for loops, immediately terminating the while loop. Execution
-# then resumes at the first statement after the loop.
 #
-# Python
-
-num = 1
-while num <= 10:
-    if num == 6:
-        break # Loop terminates when num is 6
-    print(num)
-    num += 1
-# Output:
-# 1
-# 2
-# 3
-# 4
-# 5
-
-# In this case, the loop prints numbers from 1 to 5, and when num becomes 6, the break statement is executed, causing the
-# loop to exit prematurely.
+# # --------------------------------------------------------
+# # ITERATING OVER A SEQUENCE WITH FOR AND WHILE LOOP
+# # --------------------------------------------------------
 #
-# The continue statement also functions identically to its use in for loops, skipping the remainder of the current iteration
-# and moving directly to the next one.
 #
-# Python
-
-num = 1
-while num <= 5:
-    if num == 3:
-        num += 1 # Important to increment before continue to avoid infinite loop
-        continue # Skips print(3)
-    print(num)
-    num += 1
-
-# Output:
-# 1
-# 2
-# 4
-# 5
-
-# Here, when num is 3, the continue statement is triggered, skipping the print(num) statement for that iteration. It is
-# crucial to ensure that the loop variable (num in this case) is incremented before continue is called to prevent an
-# unintentional infinite loop.
 #
-# The pass Statement as a Placeholder
-# The pass statement in Python does nothing. It serves as a null operation, used when a statement is syntactically required
-# but no action is desired within the code block.
+# # B. Iteration with for Loops
+# # Python's for statement is designed for iterating over items of any sequence or other iterable object in the order they appear, '
+# # 'a distinct approach from traditional for loops in languages like C or Pascal that often iterate over arithmetic progressions.)
 #
-# Common usages include:
+# # -------------------------------------
+# # for loop with simple range() function
+# # -------------------------------------
 #
-# Busy-wait loop: To create an infinite loop that simply idles until an external interruption (e.g., Ctrl+C).
-# Python
-
-# while True:
-#     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
-
-# Minimal classes: To define an empty class that can be extended later.
-# Python
-
-# class MyEmptyClass:
-#     pass
-
-
-# Placeholder for unimplemented code: During development, pass can be used as a temporary placeholder in functions or
-# conditional bodies, ensuring the code remains syntactically correct while the logic is still being designed.
-# Python
-
-# def initlog(*args):
-#     pass   # Remember to implement this!
-
-# The else Clause in while Loops
-# Similar to for loops, a while loop can also have an else block associated with it. This else block executes if the loop
-# completes naturally (i.e., its condition becomes False) without being terminated by a break statement.  
+# # Iterating with range(): Generating Numeric Sequences
+# # The built-in range() function is highly useful for generating sequences of numbers, which is particularly effective for
+# # iterating a specific number of times or over indices. It returns an iterable object, which is memory-efficient as it does
+# # not create the full list of numbers in memory, generating them on demand.
+# #
+# # range(stop): Generates numbers starting from 0 up to (but not including) the stop value.
+# # Python
 #
-# Python
-
-num = 1
-while num <= 5:
-    print(num)
-    num += 1
-else:
-    print("Loop completed normally.")
-
-# Output:
-# 1
-# 2
-# 3
-# 4
-# 5
-# Loop completed normally.
-
-# In this example, since the loop condition num <= 5 eventually becomes False and no break statement is encountered, the
-# else block executes.
+# for i in range(3):
+#     print(i)
+# # Output:
+# # 0
+# # 1
+# # 2
 #
-# Intentional and Unintentional Infinite Loops
-# The distinction between intentional and unintentional infinite loops is of paramount importance for senior automation engineers.
+# # ----------------------------------------------------
+# # for loop with range() function that starts and stops
+# # ----------------------------------------------------
 #
-# Intentional infinite loops: A while True: construct is used for scenarios where a loop is expected to run indefinitely
-# until an external condition is met or an explicit break is triggered. This is a common design pattern in automation for
-# long-running processes such as event loops (e.g., in graphical user interfaces or game development), server processes, or
-# continuous polling for external states (e.g., checking a file's existence or a server's availability).
-
-# Python
-
-import time, random
-MAX_RETRIES = 5
-attempts = 0
-while attempts < MAX_RETRIES:
-    attempts += 1
-    print(f"Attempt {attempts}: Connecting to the server...")
-    time.sleep(0.3)
-    if random.random() > 0.7: # Simulate success
-        print("Connection successful!")
-        break
-else:
-    print("Failed to connect after multiple attempts.")
-
-# This example demonstrates polling a server status with a retry mechanism, using break to exit upon success.
+# # range(start, stop): Generates numbers from start up to (but not including) stop.
+# # Python
 #
-# Unintentional infinite loops: These occur when the loop condition never becomes False due to a logical error in the code,
-# leading to the program hanging indefinitely or consuming excessive system resources.
+# print(list(range(5, 10)))
 #
-# Python
-
-# Example of unintentional infinite loop
-# number = 5
-# while number!= 0:
-#     print(number)
-#     number -= 2 # This will loop indefinitely as number will be 5, 3, 1, -1, -3... never 0
-
-# In this erroneous example, number will never reach 0 by decrementing by 2, causing the loop to run forever.
+# # -----------------------------------------------------------------------
+# # for loop with range() function that starts, stops and increment by step
+# # -----------------------------------------------------------------------
 #
-# For a senior automation engineer, the reliability and stability of automated systems are paramount. Automation frequently
-# involves long-running tasks like continuous monitoring, API polling, or maintaining persistent connections.
-# These scenarios naturally lead to the use of while True for intentional infinite loops. However, without proper
-# termination conditions, these can easily become resource-draining, unintended infinite loops—a severe class of bug.
-# Understanding the control flow mechanisms (break, continue, and the else clause) is key to designing and managing these
-# loops effectively, ensuring the resilience and reliability of automation systems. This reflects a mature approach to
-# system design and fault tolerance.
+# # range(start, stop, step): Generates numbers from start, incrementing (or decrementing) by step, up to (but not including) stop.
+# # Python
 #
-# Nested while Loops
-# Similar to for loops, while loops can be nested within each other to handle repetitive tasks that themselves contain
-# repetitive sub-tasks. This is useful for scenarios requiring multiple levels of iteration based on dynamic conditions.
+# print(list(range(0, 10, 3)))
+# # Output:
+# print(list(range(-10, -100, -30)))
+# # Output: [-10, -40, -70]
 #
-# Python
-
-outer_num = 1
-while outer_num <= 3:
-    inner_num = 1
-    while inner_num <= 3:
-        print(outer_num, inner_num)
-        inner_num += 1
-    outer_num += 1
-
-# Output:
-# 1 1
-# 1 2
-# 1 3
-# 2 1
-# 2 2
-# 2 3
-# 3 1
-# 3 2
-# 3 3
-
-# In this example, the outer while loop runs three times. For each iteration of the outer loop, the inner while loop also
-# runs three times, demonstrating a typical pattern for processing two-dimensional conceptual data or states.
+# # -------------------------------------------------------
+# # for loop that iterates over a sequence and its indices
+# # -------------------------------------------------------
 #
-# Common Use Cases
-# while loops are commonly employed in automation and general programming for various scenarios:
+# # Iterating Over Indices: Combining range() with len() is a common pattern to iterate over the indices of a sequence,
+# # allowing access to both the index and the element.
+# # Python
 #
-# Iterating until a specific condition is met: Such as finding the first power of 2 greater than 1000.
-# Validating user input: Repeatedly prompting for input until it meets certain criteria.
-# Implementing game loops or event loops: Where the program continuously processes events or updates states.
-# Polling external systems: Regularly checking the status of a server, a file, or a database until a desired state is achieved.
-# Managing asynchronous operations: In frameworks that rely on event-driven programming.
-
-
-
-# --------------------------------------------------------
-# FUNCTIONS
-# --------------------------------------------------------
-
-
-
-# How to define a function with positional parameters and positional parameters with default values
-
-def parrot(voltage, flying, state='a stiff', action='voom', type='Norwegian Blue'):
-    print("-- if you put", voltage, "volts through it.")
-    print("-- It's", state, "!")
-    print("-- This parrot wouldn't", action)
-    print("-- Lovely plumage, the" + type +' it is flying ' + flying)
-
-# The function is called wit the two mandatory positional arguments only. The other parameters are called automatically with their default values
-parrot(1000, 'high')
-
-# How to define a function with arbitrary positional adn keyword parameters
-def my_function(*args, **kwargs):
-    print(*args)
-    for key, value in kwargs.items():
-        print(f"{key}: {value}")
-
-# The function is called with an arbitrary number of positional and keyword arguments
-my_function(2, 3, 5, 'bomba', 1, 6, 7, 'la vida loca', True, name='John', surname='Smith')
-# Here only the arbitrary positional arguments are used, while no keyword argument is used, which is OK since the function
-# has been defined with arbitrary keyword parameters, which means there can be either 1000 and more or 0
-my_function(2, 3, 5, 'bomba', 1, 6, 7, 'la vida loca', True)
-
-# parrot('a million')
-
-# Another example with string concatenation
-def greetings(name, greeting='Hello', question='How are you? '):
-    print(greeting + ' ' + name + ': ' + question)
-
-greetings('Alice', 'Buongiorno', 'Sei una gran fica, non e\' vero?')
-
-
-# How to define a function with positional only and keyword only parameters
-def combined_example(pos_only, /, standard, *, kwd_only):
-    print(pos_only, standard, kwd_only)
-
-
-combined_example('Bomba, ', 'Hello', kwd_only='Bomba, the great!')
-
-# Lamdba function
-# The magic here is that the lambda function "remembers" the value of n from when it was created,
-# even after make_incrementor has finished running. This is called a closure -
-# the inner function captures and retains access to variables from its surrounding scope.
-
-def make_incrementor(n):
-    return lambda x: x + n
-
-f = make_incrementor(5)
-print(f(6))
-
-
-
-# --------------------------------------------------------
-# DATA TYPES
-# --------------------------------------------------------
-
-
-
-# A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for
-# or if clauses.
-
-squares = [x**2 for x in range(10)]
-
-# Another example:
-
-vec = [-4, -2, 0, 2, 4]
-# create a new list with the values doubled
-list_comprehension = [x*2 for x in vec]
-print(list_comprehension)
-# [-8, -4, 0, 4, 8]
-
-# flatten a list using a listcomp with two 'for'
-vec = [[1,2,3], [4,5,6], [7,8,9]]
-flattened_list = [num for elem in vec for num in elem]
-print(flattened_list)
-
-# Tuple packing
-
-t = 12345, 54321, 'hello!'
-
-# Tuple unpacking
-
-x, y, z = t
-
-print(x, y, z)
-
-# Sets
-basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
-print(basket) # show that duplicates have been removed
-# {'orange', 'banana', 'pear', 'apple'}
-membership_testing = 'orange' in basket # fast membership testing
-print(membership_testing)
-membership_testing2 = 'crabgrass' in basket
-print(membership_testing2)
-
-# Set comprehension
-# Similarly to list comprehensions, set comprehensions are also supported:
-a = {x for x in 'abracadabra' if x not in 'abc'}
-print(a)
-
-# Dictionaries
-tel = {'jack': 4098, 'sape': 4139}
-# Here we add another key-value pair to the dictionary 'tel'
-tel['guido'] = 4127
-print(tel)
-# Result
-# {'jack': 4098, 'sape': 4139, 'guido': 4127}
-# How to delete a key and insert a a new one
-del tel['sape']
-tel['irv'] = 4127
-print(tel)
-# Result
-# {'jack': 4098, 'guido': 4127, 'irv': 4127}
-# Print the list of keys
-print(list(tel.keys()))
-# Other operations
-print(sorted(tel))
-# Result
-# ['guido', 'irv', 'jack']
-print('guido' in tel)
-print('jack' not in tel)
-
-# Dictionary comprehension
-print({x: x**2 for x in (2, 4, 6)})
-
-# Use of dict() method to creat dictionaries
-
-# When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:
-print(dict(sape=4139, guido=4127, jack=4098))
-# Result
-# {'sape': 4139, 'guido': 4127, 'jack': 4098}
-
-# Looping through a dictionary
-
-knights = {'Gallahad': 'the pure', 'Robin': 'the brave'}
-for k, v in knights.items():
-    print(k, v)
-
-# Result
-# Gallahad the pure
-# robin the brave
-
-
-
-# --------------------------------------------------------
-# LOOPING TECHNIQUES
-# --------------------------------------------------------
-
-
-
-# Looping techniques
-
-# When looping through a sequence, the position index and corresponding value can be retrieved at the same time using
-# the enumerate() function.
-
-for i, v in enumerate(['tic', 'tac', 'toe']):
-    print(i, v)
-
-# Results
-# 0 tic
-# 1 tac
-# 2 toe
-
-# To loop over two lists with zip() method
-
-questions = ['name', 'quest', 'favorite color']
-answers = ['lancelot', 'the holy grail', 'blue']
-
-for q, a in zip(questions, answers):
-    print('What is your {0}? It is {1}.'.format(q, a))
-
-# What is your name? It is lancelot.
-# What is your quest? It is the holy grail.
-# What is your favorite color? It is blue.
-
-# To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the reversed()
-# function
-
-for i in reversed(range(1, 10, 2)):
-    print(i)
-
-# To loop over a sequence in sorted order, use the sorted() function which returns a new sorted list while leaving
-# the source unaltered
-
-basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
-
-for i in sorted(basket):
-    print(i)
-
-# To loop over a sequence in sorted order and by removing duplicates use sorted() in combination with set() methods
-
-basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
-
-for f in sorted(set(basket)):
-    print(f)
-
-# To change a list while you are looping over it
-
-import math
-raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
-filtered_data = []
-for value in raw_data:
-    if not math.isnan(value):
-        filtered_data.append(value)
-
-print(filtered_data)
-
-# Example of the walrus operator in a Python expression
-# The walrus operator := assigns a value to a variable as part of an expression.
-# The key benefit is that it makes code more concise and efficient by combining assignment with the expression where the value is used.
-# Instead of writing this:
-data = input("Enter something (or 'quit' to exit): ")
-while data != 'quit':
-    print(f"You entered: {data}")
-    data = input("Enter something (or 'quit' to exit): ")
-
-print("---")
-
-# You can write this with the walrus operator:
-
-while (data := input("Enter something (or 'quit' to exit): ")) != 'quit':
-    print(f"You entered: {data}")
-
-# Example 2: Using walrus operator in list comprehension
-# Get squares of numbers, but only if the square is greater than 10
-numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-
-# Without walrus operator (inefficient - calculates square twice):
-squares = [x**2 for x in numbers if x**2 > 10]
-
-# With walrus operator (efficient - calculates square once):
-squares_walrus = [square for x in numbers if (square := x**2) > 10]
-
-print("Numbers:", numbers)
-print("Squares > 10 (without walrus):", squares)
-print("Squares > 10 (with walrus):", squares_walrus)
-
-
-
-# --------------------------------------------------------
-# MODULES (PYHON FILES) AND PACKAGES (COLLECTIONS OF MODULES)
-# --------------------------------------------------------
-
-
-
-# Explanation of
-# if __name__ == "___main__"
-#     main()
-
-# The if __name__ == "__main__": construct in Python is a common idiom that allows you to control when certain code runs. Here's how it works:
-# What it does
-# When Python runs a file, it automatically sets a special variable called __name__. The value depends on how the file is being executed:
+# a = ['Mary', 'had', 'a', 'little', 'lamb']
+# for i in range(len(a)):
+#     print(i, a[i])
 #
-# If you run the file directly (like python myfile.py), Python sets __name__ to "__main__"
-# If you import the file as a module in another script, __name__ gets set to the actual filename (without .py)
+# # Output:
+# # 0 Mary
+# # 1 had
+# # 2 a
+# # 3 little
+# # 4 lamb
 #
-# Why it's useful
-# This allows you to write code that only runs when the script is executed directly, not when it's imported.
-
-# __name__ is a single variable that gets set to different string values depending on how the file is run:
-# When run directly:
-# bashpython myfile.py
+# # --------------------------------------------------
+# # for loop that iterates over sequences and mappings
+# # --------------------------------------------------
 #
-# __name__ gets set to the string "__main__" (literally the word "main")
-# __name__ does NOT contain "myfile.py"
+# # Python's for statement directly iterates over the items of any iterable, making it highly versatile for different '
+# # 'data structures.)
 #
-# When imported:
-# pythonimport myfile
+# # Lists: Iterates through each element in the list.
+# # Python
 #
-# __name__ gets set to "myfile" (the module name, without .py)
+# words = ['cat', 'window', 'defenestrate']
+# for w in words:
+#     print(w, len(w))
 #
-# The key point:
+# # Output:
+# # cat 3
+# # window 6
+# # defenestrate 12
 #
-# "__main__" is just a special string literal that Python uses to indicate "this file is being run directly"
-# It's not a reference to the filename
-# The comparison if __name__ == "__main__": is checking if the string stored in __name__ equals the string "__main__"
+# # -----------------------------------
+# # for loop that iterates over a tuple
+# # -----------------------------------
 #
-# You can see this in action:
-
-# myfile.py
-print(f"The value of __name__ is: {__name__}")
-
-if __name__ == "__main__":
-    print("This file was run directly")
-else:
-    print("This file was imported")
-
-# __name__ is a built-in global variable in Python
-
-# There is a variant of the import statement that imports names from a module directly into the importing module’s
-# namespace. For example:
-
-# from fibo import fib, fib2
-# fib(500)
-
-# 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
-
-# If the module name is followed by as, then the name following as is bound directly to the imported module.
-
-# import fibo as fib
-
-
-
-# --------------------------------------------------------
-# INPUT/OUTPUT
-# --------------------------------------------------------
-
-
-
-# -----------------------------
-# Formatted String literals
-# -----------------------------
-
-# To use formatted string literals, begin a string with f or F before the opening quotation mark or triple quotation
-# mark. Inside this string, you can write a Python expression between { and } characters that can refer to
-# variables or literal values.
-
-year = 2016
-event = 'Referendum'
-print(f'Results of the {year} {event}')
-
-# When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can
-# convert any value to a string with the repr() or str() functions.
-# The str() function is meant to return representations of values which are fairly human-readable, while repr()
-# is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is
-# no equivalent syntax).
-
-# -----------------------------
-# The String format() Method
-# -----------------------------
-
-# Basic usage of the str.format() method looks like this:
-
-print('We are the {} who say "{}!"'.format('knights', 'Ni'))
-
-# result will be:
-# We are the knights who say "Ni!"
-
-# -----------------------------
-#  Reading and Writing Files
-# -----------------------------
-
-# open() returns a file object, and is most commonly used with two positional arguments and one keyword argument:
-
-# open(filename, mode, encoding=None)
-
-f = open('workfile', 'w', encoding="utf-8")
-
-# The first argument is a string containing the filename. The second argument is another string containing a few
-# characters describing the way in which the file will be used. mode can be 'r' when the file will only be read, 'w'
-# for only writing (an existing file with the same name will be erased), and 'a' opens the file for appending; any data
-# written to the file is automatically added to the end. 'r+' opens the file for both reading and writing. The mode
-# argument is optional; 'r' will be assumed if it’s omitted.
-
-# Normally, files are opened in text mode, that means, you read and write strings from and to the file, which are encoded
-# in a specific encoding. If encoding is not specified, the default is platform dependent (see open()). Because UTF8 is
-# the modern de-facto standard, encoding="utf-8" is recommended unless you know that you need to use a
-# different encoding
-
-# It is good practice to use the with keyword when dealing with file objects. The advantage is that the file is properly
-# closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than
-# writing equivalent try-finally blocks:
-
-with open('workfile', encoding="utf-8") as f:
-    read_data = f.read()
-# We can check that the file has been automatically closed.
-    f.closed
-
-#     Result will be
-# True
-
-# After a file object is closed, either by a with statement or by calling f.close(), attempts to use the file object will
-# automatically fail.
-
-# To read a file’s contents, call f.read(size), which reads some quantity of data and returns it as a string (in text
-# mode) or bytes object (in binary mode). size is an optional numeric argument. When size is omitted or negative, the
-# entire contents of the file will be read and returned; it’s your problem if the file is twice as large as your machine’s
-# memory. Otherwise, at most size characters (in text mode) or size bytes (in binary mode) are read and returned. If
-# the end of the file has been reached, f.read() will return an empty string ('')
-
-# f.readline() reads a single line from the file; a newline character (\n) is left at the end of the string, and is only
-# omitted on the last line of the file if the file doesn’t end in a newline. This makes the return value unambiguous; if
-# f.readline() returns an empty string, the end of the file has been reached, while a blank line is represented by
-# '\n', a string containing only a single newline.
-
-f.readline()
-# 'This is the first line of the file.\n'
-f.readline()
-# 'Second line of the file\n'
-f.readline()
-# ''
-
-# For reading lines from a file, you can loop over the file object. This is memory efficient, fast, and leads to simple
-# code:
-
-for line in f:
-    print(line, end='')
-    ...
-
-# Result
-# This is the first line of the file.
-# Second line of the file
-
-# -------------------------------- Other examples
-
-filename = 'pi_digits.txt'
-
-with open(filename) as file_object:
-    lines = file_object.readlines()
-    for line in lines:
-        print(line.rstrip())
-
-# How to write to an empty file:
-
-filename = 'programming.txt'
-
-with open(filename, 'w') as file_object:
-    file_object.write("I love programming.")
-
-# When you open a file in append mode,
-# Python does not erase the file before returning the file object. Any lines you
-# write to the file will be added at the end of the file. If the file does not exist
-# yet, Python will create an empty file for you
-
-with open(filename, 'a') as file_object:
-    file_object.write("I also love finding meaning in large datasets.\n")
-    file_object.write("I love creating apps that can run in a browser.\n")
-
-# -------------------------------- JSON (used for data exchange)
-
-# Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows
-# you to use the popular data interchange format called JSON (JavaScript Object Notation). The standard module called
-# json can take Python data hierarchies, and convert them to string representations; this process is called serializing.
-# Reconstructing the data from the string representation is called deserializing. Between serializing and deserializing,
-# the string representing the object may have been stored in a file or data, or sent over a network connection to some
-# distant machine.
-
-# -------------------------------- How to see the JSON string representation
-
-# If you have an object x, you can view its JSON string representation with a simple line of code:
-
-import json
-x = [1, 'simple', 'list']
-json.dumps(x)
-# Result will be:
-'[1, "simple", "list"]'
-
-# -------------------------------- Serialization
-
-# Another variant of the dumps() function, called dump(), simply serializes the object to a text file. So if f is a text
-# file object opened for writing, we can do this:
-
-json.dump(x, f)
-
-# -------------------------------- Deserialization
-
-x = json.load(f)
-
-
-
-# --------------------------------------------------------
-# SYNTAX ERRORS AND EXCEPTIONS
-# --------------------------------------------------------
-
-# There are (at least) two distinguishable kinds of errors: syntax errors and exceptions.
-
-# -----------------------------
-#  SYNTAX ERRORS
-# -----------------------------
-
-# Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are
-# still learning Python:
-
-# while True print('Hello world')
+# # Tuples: Iteration over tuples is very similar to lists, processing each element in sequence. It is also possible to
+# # unpack elements from a list of tuples directly within the loop.
+# # Python
 #
-# File "<stdin>", line 1
-# while True print('Hello world')
-# ^^^^^
-# SyntaxError: invalid syntax
-
-# The parser repeats the offending line and displays little arrows pointing at the place where the error was detected.
-# Note that this is not always the place that needs to be fixed. In the example, the error is detected at the function
-# print(), since a colon (':') is missing just before it.
-# The file name (<stdin> in our example) and line number are printed so you know where to look in case the input
-# came from a file.
-
-# -----------------------------
-#  EXCEPTIONS
-# -----------------------------
-
-# Errors detected during execution are called exceptions and are not unconditionally fatal
-
-# -----------------------------
-#  HANDLING EXCEPTIONS
-# -----------------------------
+# x = (10, 20, 30)
+# for var in x:
+#     print(var)
+#
+# # Output:
+# # 10
+# # 20
+# # 30
+#
+# points = [(1,2), (3,4)]
+# for a, b in points:
+#     print(f"{a} plus {b} equals {a+b}")
+#
+# # Output:
+# # 1 plus 2 equals 3
+# # 3 plus 4 equals 7
+#
+# # ------------------------------------
+# # for loop that iterates over a string
+# # ------------------------------------
+#
+# # Strings: Iterates through each character in the string.
+# # Python
+#
+# for char in "Python":
+#     print(char)
+#
+# # Output:
+# # P
+# # y
+# # t
+# # h
+# # o
+# # n
+#
+# # ----------------------------------------
+# # for loop that iterates over a dictionary
+# # ----------------------------------------
+#
+# # Dictionary Keys (Default): When iterating directly over a dictionary, the loop processes its keys by default.
+# # Python
+#
+# users = {'Hans': 'active', 'Éléonore': 'inactive'}
+# for user in users:
+#     print(user)
+# # Output:
+# # Hans
+# # Éléonore
+#
+# # Dictionary Values: The .values() method can be used to iterate specifically over the values of a dictionary.
+# # Python
+#
+# for status in users.values():
+#     print(status)
+#
+# # Output:
+# # active
+# # inactive
+#
+# # Dictionary Items (Key-Value Pairs): The .items() method is used to iterate over both keys and values simultaneously,
+# # unpacking them into separate loop variables.
+# # Python
+#
+# stocks = { 'AAPL': 187.31, 'MSFT': 124.06 }
+# for key, value in stocks.items():
+#     print(f"{key} : {value}")
+#
+# # Output:
+# # AAPL : 187.31
+# # MSFT : 124.06
+#
+#
+# # A critical consideration for senior automation engineers is the important note on modifying collections during iteration.
+# # Modifying a collection (e.g., adding or deleting items) while iterating over it can lead to subtle bugs or runtime errors,
+# # such as RuntimeError: dictionary changed size during iteration. This common pitfall can cause unpredictable behavior,
+# # including skipped elements, which are notoriously difficult to debug in complex automation scripts. When an iterator is
+# # active and the underlying collection's size or structure changes, the iterator's internal state can become invalid. F
+# # or automation, where scripts frequently manipulate data structures like lists of tasks, dictionaries of configurations,
+# # or sets of unique identifiers, such issues can lead to automation failures that are hard to reproduce. It is generally safer
+# # and more straightforward to iterate over a copy of the collection or to build a new collection to ensure the robustness and
+# # predictability of automation workflows. A senior engineer demonstrates expertise by proactively avoiding these issues through
+# # consistent application of defensive programming strategies.
+#
+# # Python
+#
+# users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
+#
+# # Strategy: Iterate over a copy to safely delete inactive users
+# for user, status in users.copy().items():
+#     if status == 'inactive':
+#         del users[user]
+# print(users)
+#
+# # Output: {'Hans': 'active', '景太郎': 'active'}
+#
+# # Strategy: Create a new collection for active users
+# active_users = {}
+# for user, status in users.items():
+#     if status == 'active':
+#         active_users[user] = status
+# print(active_users)
+# # Output: {'Hans': 'active', '景太郎': 'active'}
+#
+# # ----------------------------------------
+# # for loop with break and continue
+# # ----------------------------------------
+#
+# # Controlling for Loop Flow: break and continue
+# # Loop control statements provide fine-grained management over iteration.
+# #
+# # The break statement immediately terminates the innermost enclosing for or while loop. Execution then resumes at the first
+# # statement after the loop. It is typically used within a conditional statement to exit the loop once a desired condition is
+# # met, avoiding unnecessary further iterations.
+# #
+# # Python
+#
+# for n in range(2, 10):
+#     for x in range(2, n):
+#         if n % x == 0:
+#             print(f"{n} equals {x} * {n//x}")
+#             break # Exits the inner loop
+# # Output:
+# # 4 equals 2 * 2
+# # 6 equals 2 * 3
+# # 8 equals 2 * 4
+# # 9 equals 3 * 3
+#
+# # This example finds factors for numbers between 2 and 9. When a factor x is found for n, the factorization is printed,
+# # and break exits the inner for loop, moving to the next n in the outer loop.
+# #
+# # The continue statement skips the rest of the current iteration of the loop and proceeds to the next iteration. Like break,
+# # it is typically used within a conditional statement.
+# #
+# # Python
+#
+# for num in range(2, 10):
+#     if num % 2 == 0:
+#         print(f"Found an even number {num}")
+#         continue # Skips the rest of this iteration
+#     print(f"Found an odd number {num}")
+#
+# # Output:
+# # Found an even number 2
+# # Found an odd number 3
+# # Found an even number 4
+# # Found an odd number 5
+# # Found an even number 6
+# # Found an odd number 7
+# # Found an even number 8
+# # Found an odd number 9
+#
+# # In this example, if num is even, it prints "Found an even number" and continues to the next num without executing the
+# # subsequent print statement in the same iteration.
+# #
+# # The else Clause in for Loops
+# # Both for and while loops can have an optional else clause. This else block executes only if the loop completes all its
+# # iterations without encountering a break statement. This is particularly useful for scenarios where one needs to confirm
+# # if a loop finished its task completely or was interrupted.
+# #
+# # Python
+#
+# for n in range(2, 10):
+#     for x in range(2, n):
+#         if n % x == 0:
+#             print(n, 'equals', x, '*', n//x)
+#             break
+#     else: # This else belongs to the inner for loop
+#         print(n, 'is a prime number')
+#
+# # Output:
+# # 2 is a prime number
+# # 3 is a prime number
+# # 4 equals 2 * 2
+# # 5 is a prime number
+# # 6 equals 2 * 3
+# # 7 is a prime number
+# # 8 equals 2 * 4
+# # 9 equals 3 * 3
+#
+# # In this example, the inner for loop attempts to find a factor for n. If a factor is found, break is executed, and the
+# # else clause of the inner for loop is skipped. If no factor is found (meaning the inner loop completes all its iterations),
+# # the else clause executes, indicating that n is a prime number.
+# #
+# # Nested for Loops
+# # Nested for loops involve placing one or more for loops inside another. This structure is common for processing multi-dimensional
+# # data structures, such as matrices, or for generating combinations of elements from multiple iterables. The prime number
+# # example above effectively demonstrates the use of nested for loops.
+# #
+# # Must-have Table: for Loop Iteration Examples Across Data Structures
+# # The following table provides a concise reference for common iteration patterns across fundamental Python data structures,
+# # which is invaluable for a senior engineer needing to quickly recall or implement specific iteration logic. Mastering these
+# # idiomatic ways of iterating over various data types is fundamental for writing efficient, readable, and Pythonic code,
+# # directly impacting the quality and maintainability of automation scripts.
+#
+# # Usage Type	                        Example Code	                                                                Explanation/Context
+# # for i in range(stop)	                for i in range(3): print(i)	                                                    Iterates from 0 up to (but not including) stop.
+# # for i in range(start, stop)	        for i in range(1, 4): print(i)	                                                Iterates from start up to (but not including) stop.
+# # for i in range(start, stop, step)	    for i in range(0, 10, 2): print(i)	                                            Iterates from start, incrementing by step, up to stop.
+# # for item in my_list	                my_list = ; for item in my_list: print(item)	                                Iterates directly over each element in a list.
+# # for item in my_tuple	                my_tuple = (10, 20); for item in my_tuple: print(item)	                        Iterates directly over each element in a tuple.
+# # for char in my_string	                my_string = "abc"; for char in my_string: print(char)	                        Iterates directly over each character in a string.
+# # for key in my_dict	                my_dict = {'a':1, 'b':2}; for key in my_dict: print(key)	                    Iterates over the keys of a dictionary (default behavior).
+# # for value in my_dict.values()	        my_dict = {'a':1, 'b':2}; for value in my_dict.values(): print(value)	        Iterates specifically over the values of a dictionary.
+# # for key, value in my_dict.items()	    my_dict = {'a':1, 'b':2}; for k, v in my_dict.items(): print(f"{k}:{v}")	    Iterates over key-value pairs of a dictionary.
+# # for item in my_set	                my_set = {1, 2, 3}; for item in my_set: print(item)	                            Iterates over unique elements in a set (order not guaranteed).
+# # for line in file_object	            with open('file.txt') as f: for line in f: print(line.strip())	                Iterates line by line over the contents of a file.
+# # for x, y in list_of_tuples	        points = [(1,2), (3,4)]; for x, y in points: print(x+y)	                        Unpacks elements from inner iterables (e.g., tuples in a list).
+#
+# # -------------------------------------
+# # while loop
+# # -------------------------------------
+#
+# # C. Conditional Repetition: while Loops
+# # The while loop is a control flow statement that repeatedly executes a block of code as long as a given condition remains True.
+# # The condition is evaluated at the beginning of each iteration.
+# #
+# # A basic while loop structure is straightforward:
+# #
+# # Python
+#
+# count = 0
+# while count < 5:
+#     print(count)
+#     count += 1
+#
+# # Output:
+# # 0
+# # 1
+# # 2
+# # 3
+# # 4
+#
+# # This loop continues as long as count is less than 5. In each iteration, count is printed and then incremented.
+# #
+# # Controlling while Loop Flow: break and continue
+# # Similar to for loops, while loops also support break and continue statements for flow control.
+# #
+# # The break statement functions identically to its use in for loops, immediately terminating the while loop. Execution
+# # then resumes at the first statement after the loop.
+# #
+# # Python
+#
+# num = 1
+# while num <= 10:
+#     if num == 6:
+#         break # Loop terminates when num is 6
+#     print(num)
+#     num += 1
+# # Output:
+# # 1
+# # 2
+# # 3
+# # 4
+# # 5
+#
+# # In this case, the loop prints numbers from 1 to 5, and when num becomes 6, the break statement is executed, causing the
+# # loop to exit prematurely.
+# #
+# # The continue statement also functions identically to its use in for loops, skipping the remainder of the current iteration
+# # and moving directly to the next one.
+# #
+# # Python
+#
+# num = 1
+# while num <= 5:
+#     if num == 3:
+#         num += 1 # Important to increment before continue to avoid infinite loop
+#         continue # Skips print(3)
+#     print(num)
+#     num += 1
+#
+# # Output:
+# # 1
+# # 2
+# # 4
+# # 5
+#
+# # Here, when num is 3, the continue statement is triggered, skipping the print(num) statement for that iteration. It is
+# # crucial to ensure that the loop variable (num in this case) is incremented before continue is called to prevent an
+# # unintentional infinite loop.
+# #
+# # The pass Statement as a Placeholder
+# # The pass statement in Python does nothing. It serves as a null operation, used when a statement is syntactically required
+# # but no action is desired within the code block.
+# #
+# # Common usages include:
+# #
+# # Busy-wait loop: To create an infinite loop that simply idles until an external interruption (e.g., Ctrl+C).
+# # Python
+#
+# # while True:
+# #     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+#
+# # Minimal classes: To define an empty class that can be extended later.
+# # Python
+#
+# # class MyEmptyClass:
+# #     pass
+#
+#
+# # Placeholder for unimplemented code: During development, pass can be used as a temporary placeholder in functions or
+# # conditional bodies, ensuring the code remains syntactically correct while the logic is still being designed.
+# # Python
+#
+# # def initlog(*args):
+# #     pass   # Remember to implement this!
+#
+# # The else Clause in while Loops
+# # Similar to for loops, a while loop can also have an else block associated with it. This else block executes if the loop
+# # completes naturally (i.e., its condition becomes False) without being terminated by a break statement.  
+# #
+# # Python
+#
+# num = 1
+# while num <= 5:
+#     print(num)
+#     num += 1
+# else:
+#     print("Loop completed normally.")
+#
+# # Output:
+# # 1
+# # 2
+# # 3
+# # 4
+# # 5
+# # Loop completed normally.
+#
+# # In this example, since the loop condition num <= 5 eventually becomes False and no break statement is encountered, the
+# # else block executes.
+# #
+# # Intentional and Unintentional Infinite Loops
+# # The distinction between intentional and unintentional infinite loops is of paramount importance for senior automation engineers.
+# #
+# # Intentional infinite loops: A while True: construct is used for scenarios where a loop is expected to run indefinitely
+# # until an external condition is met or an explicit break is triggered. This is a common design pattern in automation for
+# # long-running processes such as event loops (e.g., in graphical user interfaces or game development), server processes, or
+# # continuous polling for external states (e.g., checking a file's existence or a server's availability).
+#
+# # Python
+#
+# import time, random
+# MAX_RETRIES = 5
+# attempts = 0
+# while attempts < MAX_RETRIES:
+#     attempts += 1
+#     print(f"Attempt {attempts}: Connecting to the server...")
+#     time.sleep(0.3)
+#     if random.random() > 0.7: # Simulate success
+#         print("Connection successful!")
+#         break
+# else:
+#     print("Failed to connect after multiple attempts.")
+#
+# # This example demonstrates polling a server status with a retry mechanism, using break to exit upon success.
+# #
+# # Unintentional infinite loops: These occur when the loop condition never becomes False due to a logical error in the code,
+# # leading to the program hanging indefinitely or consuming excessive system resources.
+# #
+# # Python
+#
+# # Example of unintentional infinite loop
+# # number = 5
+# # while number!= 0:
+# #     print(number)
+# #     number -= 2 # This will loop indefinitely as number will be 5, 3, 1, -1, -3... never 0
+#
+# # In this erroneous example, number will never reach 0 by decrementing by 2, causing the loop to run forever.
+# #
+# # For a senior automation engineer, the reliability and stability of automated systems are paramount. Automation frequently
+# # involves long-running tasks like continuous monitoring, API polling, or maintaining persistent connections.
+# # These scenarios naturally lead to the use of while True for intentional infinite loops. However, without proper
+# # termination conditions, these can easily become resource-draining, unintended infinite loops—a severe class of bug.
+# # Understanding the control flow mechanisms (break, continue, and the else clause) is key to designing and managing these
+# # loops effectively, ensuring the resilience and reliability of automation systems. This reflects a mature approach to
+# # system design and fault tolerance.
+# #
+# # Nested while Loops
+# # Similar to for loops, while loops can be nested within each other to handle repetitive tasks that themselves contain
+# # repetitive sub-tasks. This is useful for scenarios requiring multiple levels of iteration based on dynamic conditions.
+# #
+# # Python
+#
+# outer_num = 1
+# while outer_num <= 3:
+#     inner_num = 1
+#     while inner_num <= 3:
+#         print(outer_num, inner_num)
+#         inner_num += 1
+#     outer_num += 1
+#
+# # Output:
+# # 1 1
+# # 1 2
+# # 1 3
+# # 2 1
+# # 2 2
+# # 2 3
+# # 3 1
+# # 3 2
+# # 3 3
+#
+# # In this example, the outer while loop runs three times. For each iteration of the outer loop, the inner while loop also
+# # runs three times, demonstrating a typical pattern for processing two-dimensional conceptual data or states.
+# #
+# # Common Use Cases
+# # while loops are commonly employed in automation and general programming for various scenarios:
+# #
+# # Iterating until a specific condition is met: Such as finding the first power of 2 greater than 1000.
+# # Validating user input: Repeatedly prompting for input until it meets certain criteria.
+# # Implementing game loops or event loops: Where the program continuously processes events or updates states.
+# # Polling external systems: Regularly checking the status of a server, a file, or a database until a desired state is achieved.
+# # Managing asynchronous operations: In frameworks that rely on event-driven programming.
+#
+#
+#
+# # --------------------------------------------------------
+# # FUNCTIONS
+# # --------------------------------------------------------
+#
+#
+#
+# # How to define a function with positional parameters and positional parameters with default values
+#
+# def parrot(voltage, flying, state='a stiff', action='voom', type='Norwegian Blue'):
+#     print("-- if you put", voltage, "volts through it.")
+#     print("-- It's", state, "!")
+#     print("-- This parrot wouldn't", action)
+#     print("-- Lovely plumage, the" + type +' it is flying ' + flying)
+#
+# # The function is called wit the two mandatory positional arguments only. The other parameters are called automatically with their default values
+# parrot(1000, 'high')
+#
+# # How to define a function with arbitrary positional adn keyword parameters
+# def my_function(*args, **kwargs):
+#     print(*args)
+#     for key, value in kwargs.items():
+#         print(f"{key}: {value}")
+#
+# # The function is called with an arbitrary number of positional and keyword arguments
+# my_function(2, 3, 5, 'bomba', 1, 6, 7, 'la vida loca', True, name='John', surname='Smith')
+# # Here only the arbitrary positional arguments are used, while no keyword argument is used, which is OK since the function
+# # has been defined with arbitrary keyword parameters, which means there can be either 1000 and more or 0
+# my_function(2, 3, 5, 'bomba', 1, 6, 7, 'la vida loca', True)
+#
+# # parrot('a million')
+#
+# # Another example with string concatenation
+# def greetings(name, greeting='Hello', question='How are you? '):
+#     print(greeting + ' ' + name + ': ' + question)
+#
+# greetings('Alice', 'Buongiorno', 'Sei una gran fica, non e\' vero?')
+#
+#
+# # How to define a function with positional only and keyword only parameters
+# def combined_example(pos_only, /, standard, *, kwd_only):
+#     print(pos_only, standard, kwd_only)
+#
+#
+# combined_example('Bomba, ', 'Hello', kwd_only='Bomba, the great!')
+#
+# # Lamdba function
+# # The magic here is that the lambda function "remembers" the value of n from when it was created,
+# # even after make_incrementor has finished running. This is called a closure -
+# # the inner function captures and retains access to variables from its surrounding scope.
+#
+# def make_incrementor(n):
+#     return lambda x: x + n
+#
+# f = make_incrementor(5)
+# print(f(6))
+#
+#
+#
+# # --------------------------------------------------------
+# # DATA TYPES
+# # --------------------------------------------------------
+#
+#
+#
+# # A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for
+# # or if clauses.
+#
+# squares = [x**2 for x in range(10)]
+#
+# # Another example:
+#
+# vec = [-4, -2, 0, 2, 4]
+# # create a new list with the values doubled
+# list_comprehension = [x*2 for x in vec]
+# print(list_comprehension)
+# # [-8, -4, 0, 4, 8]
+#
+# # flatten a list using a listcomp with two 'for'
+# vec = [[1,2,3], [4,5,6], [7,8,9]]
+# flattened_list = [num for elem in vec for num in elem]
+# print(flattened_list)
+#
+# # Tuple packing
+#
+# t = 12345, 54321, 'hello!'
+#
+# # Tuple unpacking
+#
+# x, y, z = t
+#
+# print(x, y, z)
+#
+# # Sets
+# basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+# print(basket) # show that duplicates have been removed
+# # {'orange', 'banana', 'pear', 'apple'}
+# membership_testing = 'orange' in basket # fast membership testing
+# print(membership_testing)
+# membership_testing2 = 'crabgrass' in basket
+# print(membership_testing2)
+#
+# # Set comprehension
+# # Similarly to list comprehensions, set comprehensions are also supported:
+# a = {x for x in 'abracadabra' if x not in 'abc'}
+# print(a)
+#
+# # Dictionaries
+# tel = {'jack': 4098, 'sape': 4139}
+# # Here we add another key-value pair to the dictionary 'tel'
+# tel['guido'] = 4127
+# print(tel)
+# # Result
+# # {'jack': 4098, 'sape': 4139, 'guido': 4127}
+# # How to delete a key and insert a a new one
+# del tel['sape']
+# tel['irv'] = 4127
+# print(tel)
+# # Result
+# # {'jack': 4098, 'guido': 4127, 'irv': 4127}
+# # Print the list of keys
+# print(list(tel.keys()))
+# # Other operations
+# print(sorted(tel))
+# # Result
+# # ['guido', 'irv', 'jack']
+# print('guido' in tel)
+# print('jack' not in tel)
+#
+# # Dictionary comprehension
+# print({x: x**2 for x in (2, 4, 6)})
+#
+# # Use of dict() method to creat dictionaries
+#
+# # When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:
+# print(dict(sape=4139, guido=4127, jack=4098))
+# # Result
+# # {'sape': 4139, 'guido': 4127, 'jack': 4098}
+#
+# # Looping through a dictionary
+#
+# knights = {'Gallahad': 'the pure', 'Robin': 'the brave'}
+# for k, v in knights.items():
+#     print(k, v)
+#
+# # Result
+# # Gallahad the pure
+# # robin the brave
+#
+#
+#
+# # --------------------------------------------------------
+# # LOOPING TECHNIQUES
+# # --------------------------------------------------------
+#
+#
+#
+# # Looping techniques
+#
+# # When looping through a sequence, the position index and corresponding value can be retrieved at the same time using
+# # the enumerate() function.
+#
+# for i, v in enumerate(['tic', 'tac', 'toe']):
+#     print(i, v)
+#
+# # Results
+# # 0 tic
+# # 1 tac
+# # 2 toe
+#
+# # To loop over two lists with zip() method
+#
+# questions = ['name', 'quest', 'favorite color']
+# answers = ['lancelot', 'the holy grail', 'blue']
+#
+# for q, a in zip(questions, answers):
+#     print('What is your {0}? It is {1}.'.format(q, a))
+#
+# # What is your name? It is lancelot.
+# # What is your quest? It is the holy grail.
+# # What is your favorite color? It is blue.
+#
+# # To loop over a sequence in reverse, first specify the sequence in a forward direction and then call the reversed()
+# # function
+#
+# for i in reversed(range(1, 10, 2)):
+#     print(i)
+#
+# # To loop over a sequence in sorted order, use the sorted() function which returns a new sorted list while leaving
+# # the source unaltered
+#
+# basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+#
+# for i in sorted(basket):
+#     print(i)
+#
+# # To loop over a sequence in sorted order and by removing duplicates use sorted() in combination with set() methods
+#
+# basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+#
+# for f in sorted(set(basket)):
+#     print(f)
+#
+# # To change a list while you are looping over it
+#
+# import math
+# raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
+# filtered_data = []
+# for value in raw_data:
+#     if not math.isnan(value):
+#         filtered_data.append(value)
+#
+# print(filtered_data)
+#
+# # Example of the walrus operator in a Python expression
+# # The walrus operator := assigns a value to a variable as part of an expression.
+# # The key benefit is that it makes code more concise and efficient by combining assignment with the expression where the value is used.
+# # Instead of writing this:
+# data = input("Enter something (or 'quit' to exit): ")
+# while data != 'quit':
+#     print(f"You entered: {data}")
+#     data = input("Enter something (or 'quit' to exit): ")
+#
+# print("---")
+#
+# # You can write this with the walrus operator:
+#
+# while (data := input("Enter something (or 'quit' to exit): ")) != 'quit':
+#     print(f"You entered: {data}")
+#
+# # Example 2: Using walrus operator in list comprehension
+# # Get squares of numbers, but only if the square is greater than 10
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+#
+# # Without walrus operator (inefficient - calculates square twice):
+# squares = [x**2 for x in numbers if x**2 > 10]
+#
+# # With walrus operator (efficient - calculates square once):
+# squares_walrus = [square for x in numbers if (square := x**2) > 10]
+#
+# print("Numbers:", numbers)
+# print("Squares > 10 (without walrus):", squares)
+# print("Squares > 10 (with walrus):", squares_walrus)
+#
+#
+#
+# # --------------------------------------------------------
+# # MODULES (PYHON FILES) AND PACKAGES (COLLECTIONS OF MODULES)
+# # --------------------------------------------------------
+#
+#
+#
+# # Explanation of
+# # if __name__ == "___main__"
+# #     main()
+#
+# # The if __name__ == "__main__": construct in Python is a common idiom that allows you to control when certain code runs. Here's how it works:
+# # What it does
+# # When Python runs a file, it automatically sets a special variable called __name__. The value depends on how the file is being executed:
+# #
+# # If you run the file directly (like python myfile.py), Python sets __name__ to "__main__"
+# # If you import the file as a module in another script, __name__ gets set to the actual filename (without .py)
+# #
+# # Why it's useful
+# # This allows you to write code that only runs when the script is executed directly, not when it's imported.
+#
+# # __name__ is a single variable that gets set to different string values depending on how the file is run:
+# # When run directly:
+# # bashpython myfile.py
+# #
+# # __name__ gets set to the string "__main__" (literally the word "main")
+# # __name__ does NOT contain "myfile.py"
+# #
+# # When imported:
+# # pythonimport myfile
+# #
+# # __name__ gets set to "myfile" (the module name, without .py)
+# #
+# # The key point:
+# #
+# # "__main__" is just a special string literal that Python uses to indicate "this file is being run directly"
+# # It's not a reference to the filename
+# # The comparison if __name__ == "__main__": is checking if the string stored in __name__ equals the string "__main__"
+# #
+# # You can see this in action:
+#
+# # myfile.py
+# print(f"The value of __name__ is: {__name__}")
+#
+# if __name__ == "__main__":
+#     print("This file was run directly")
+# else:
+#     print("This file was imported")
+#
+# # __name__ is a built-in global variable in Python
+#
+# # There is a variant of the import statement that imports names from a module directly into the importing module’s
+# # namespace. For example:
+#
+# # from fibo import fib, fib2
+# # fib(500)
+#
+# # 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
+#
+# # If the module name is followed by as, then the name following as is bound directly to the imported module.
+#
+# # import fibo as fib
+#
+#
+#
+# # --------------------------------------------------------
+# # INPUT/OUTPUT
+# # --------------------------------------------------------
+#
+#
+#
+# # -----------------------------
+# # Formatted String literals
+# # -----------------------------
+#
+# # To use formatted string literals, begin a string with f or F before the opening quotation mark or triple quotation
+# # mark. Inside this string, you can write a Python expression between { and } characters that can refer to
+# # variables or literal values.
+#
+# year = 2016
+# event = 'Referendum'
+# print(f'Results of the {year} {event}')
+#
+# # When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can
+# # convert any value to a string with the repr() or str() functions.
+# # The str() function is meant to return representations of values which are fairly human-readable, while repr()
+# # is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is
+# # no equivalent syntax).
+#
+# # -----------------------------
+# # The String format() Method
+# # -----------------------------
+#
+# # Basic usage of the str.format() method looks like this:
+#
+# print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+#
+# # result will be:
+# # We are the knights who say "Ni!"
+#
+# # -----------------------------
+# #  Reading and Writing Files
+# # -----------------------------
+#
+# # open() returns a file object, and is most commonly used with two positional arguments and one keyword argument:
+#
+# # open(filename, mode, encoding=None)
+#
+# f = open('workfile', 'w', encoding="utf-8")
+#
+# # The first argument is a string containing the filename. The second argument is another string containing a few
+# # characters describing the way in which the file will be used. mode can be 'r' when the file will only be read, 'w'
+# # for only writing (an existing file with the same name will be erased), and 'a' opens the file for appending; any data
+# # written to the file is automatically added to the end. 'r+' opens the file for both reading and writing. The mode
+# # argument is optional; 'r' will be assumed if it’s omitted.
+#
+# # Normally, files are opened in text mode, that means, you read and write strings from and to the file, which are encoded
+# # in a specific encoding. If encoding is not specified, the default is platform dependent (see open()). Because UTF8 is
+# # the modern de-facto standard, encoding="utf-8" is recommended unless you know that you need to use a
+# # different encoding
+#
+# # It is good practice to use the with keyword when dealing with file objects. The advantage is that the file is properly
+# # closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than
+# # writing equivalent try-finally blocks:
+#
+# with open('workfile', encoding="utf-8") as f:
+#     read_data = f.read()
+# # We can check that the file has been automatically closed.
+#     f.closed
+#
+# #     Result will be
+# # True
+#
+# # After a file object is closed, either by a with statement or by calling f.close(), attempts to use the file object will
+# # automatically fail.
+#
+# # To read a file’s contents, call f.read(size), which reads some quantity of data and returns it as a string (in text
+# # mode) or bytes object (in binary mode). size is an optional numeric argument. When size is omitted or negative, the
+# # entire contents of the file will be read and returned; it’s your problem if the file is twice as large as your machine’s
+# # memory. Otherwise, at most size characters (in text mode) or size bytes (in binary mode) are read and returned. If
+# # the end of the file has been reached, f.read() will return an empty string ('')
+#
+# # f.readline() reads a single line from the file; a newline character (\n) is left at the end of the string, and is only
+# # omitted on the last line of the file if the file doesn’t end in a newline. This makes the return value unambiguous; if
+# # f.readline() returns an empty string, the end of the file has been reached, while a blank line is represented by
+# # '\n', a string containing only a single newline.
+#
+# f.readline()
+# # 'This is the first line of the file.\n'
+# f.readline()
+# # 'Second line of the file\n'
+# f.readline()
+# # ''
+#
+# # For reading lines from a file, you can loop over the file object. This is memory efficient, fast, and leads to simple
+# # code:
+#
+# for line in f:
+#     print(line, end='')
+#     ...
+#
+# # Result
+# # This is the first line of the file.
+# # Second line of the file
+#
+# # -------------------------------- Other examples
+#
+# filename = 'pi_digits.txt'
+#
+# with open(filename) as file_object:
+#     lines = file_object.readlines()
+#     for line in lines:
+#         print(line.rstrip())
+#
+# # How to write to an empty file:
+#
+# filename = 'programming.txt'
+#
+# with open(filename, 'w') as file_object:
+#     file_object.write("I love programming.")
+#
+# # When you open a file in append mode,
+# # Python does not erase the file before returning the file object. Any lines you
+# # write to the file will be added at the end of the file. If the file does not exist
+# # yet, Python will create an empty file for you
+#
+# with open(filename, 'a') as file_object:
+#     file_object.write("I also love finding meaning in large datasets.\n")
+#     file_object.write("I love creating apps that can run in a browser.\n")
+#
+# # -------------------------------- JSON (used for data exchange)
+#
+# # Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows
+# # you to use the popular data interchange format called JSON (JavaScript Object Notation). The standard module called
+# # json can take Python data hierarchies, and convert them to string representations; this process is called serializing.
+# # Reconstructing the data from the string representation is called deserializing. Between serializing and deserializing,
+# # the string representing the object may have been stored in a file or data, or sent over a network connection to some
+# # distant machine.
+#
+# # -------------------------------- How to see the JSON string representation
+#
+# # If you have an object x, you can view its JSON string representation with a simple line of code:
+#
+# import json
+# x = [1, 'simple', 'list']
+# json.dumps(x)
+# # Result will be:
+# '[1, "simple", "list"]'
+#
+# # -------------------------------- Serialization
+#
+# # Another variant of the dumps() function, called dump(), simply serializes the object to a text file. So if f is a text
+# # file object opened for writing, we can do this:
+#
+# json.dump(x, f)
+#
+# # -------------------------------- Deserialization
+#
+# x = json.load(f)
+#
+#
+#
+# # --------------------------------------------------------
+# # SYNTAX ERRORS AND EXCEPTIONS
+# # --------------------------------------------------------
+#
+# # There are (at least) two distinguishable kinds of errors: syntax errors and exceptions.
+#
+# # -----------------------------
+# #  SYNTAX ERRORS
+# # -----------------------------
+#
+# # Syntax errors, also known as parsing errors, are perhaps the most common kind of complaint you get while you are
+# # still learning Python:
+#
+# # while True print('Hello world')
+# #
+# # File "<stdin>", line 1
+# # while True print('Hello world')
+# # ^^^^^
+# # SyntaxError: invalid syntax
+#
+# # The parser repeats the offending line and displays little arrows pointing at the place where the error was detected.
+# # Note that this is not always the place that needs to be fixed. In the example, the error is detected at the function
+# # print(), since a colon (':') is missing just before it.
+# # The file name (<stdin> in our example) and line number are printed so you know where to look in case the input
+# # came from a file.
+#
+# # -----------------------------
+# #  EXCEPTIONS
+# # -----------------------------
+#
+# # Errors detected during execution are called exceptions and are not unconditionally fatal
+#
+# # -----------------------------
+# #  HANDLING EXCEPTIONS
+# # -----------------------------
 
 while True:
     try:
@@ -1137,7 +1137,7 @@ while True:
 
 # The raise statement allows the programmer to force a specified exception to occur. For example:
 
-raise NameError('HiThere')
+# raise NameError('HiThere')
 # Traceback (most recent call last):
 # File "<stdin>", line 1, in <module>
 # raise NameError('HiThere')
@@ -1150,10 +1150,10 @@ raise NameError('HiThere')
 # If an unhandled exception occurs inside an except section, it will have the exception being handled attached to it
 # and included in the error message:
 
-try:
-    open("database.sqlite")
-except OSError:
-    raise RuntimeError("unable to handle error")
+# try:
+#     open("database.sqlite")
+# except OSError:
+#     raise RuntimeError("unable to handle error")
 
 # Traceback (most recent call last):
 # File "<stdin>", line 2, in <module>
@@ -1169,13 +1169,13 @@ except OSError:
 
 # To indicate that an exception is a direct consequence of another, the raise statement allows an optional from clause
 
-def func():
-    raise ConnectionError
-
-    try:
-        func()
-    except ConnectionError as exc:
-        raise RuntimeError('Failed to open database') from exc
+# def func():
+#     raise ConnectionError
+#
+#     try:
+#         func()
+#     except ConnectionError as exc:
+#         raise RuntimeError('Failed to open database') from exc
 
 # Traceback (most recent call last):
 # File "<stdin>", line 2, in <module>
@@ -1214,72 +1214,698 @@ finally:
 # --------------------------------------------------------
 # CLASSES
 # --------------------------------------------------------
-
-
-
-# Creating a new class creates a new type of object,
-# allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining
-# its state. Class instances can also have methods (defined by its class) for modifying its state.
-
-# The class inheritance mechanism allows multiple base classes, a
-# derived class can override any methods of its base class or classes, and a method can call the method of a base class
-# with the same name.
-
-# Classes are created at runtime, and can be modified further after creation.
-
- # As in Smalltalk, classes themselves are objects.
-
-# -----------------------------
-#  NAMESPACE
-# -----------------------------
-
-# A NAMESPACE MAPS A NAME TO AN OBJECT
-
-# A namespace is a mapping from names to objects. Most namespaces are currently implemented as Python dictionaries,
-# but that’s normally not noticeable in any way (except for performance), and it may change in the future. Examples
-# of namespaces are: the set of built-in names (containing functions such as abs(), and built-in exception names);
-# the global names in a module; and the local names in a function invocation. In a sense the set of attributes of an
-# object also form a namespace. The important thing to know about namespaces is that there is absolutely no relation
-# between names in different namespaces; for instance, two different modules may both define a function maximize
-# without confusion — users of the modules must prefix it with the module name
-
-# -----------------------------
-#  ATTRIBUTES
-# -----------------------------
-
-# By the way, I use the word attribute for any name following a dot — for example, in the expression z.real, real
-# is an attribute of the object z
-
-# Strictly speaking, references to names in modules are attribute references: in the
-# expression modname.funcname, modname is a module object and funcname is an attribute of it. In this case there
-# happens to be a straightforward mapping between the module’s attributes and the global names defined in the module:
-# they share the same namespace!
-
-# -----------------------------
-#  SCOPE
-# -----------------------------
-
-# Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4
-# nested scopes whose namespaces are directly accessible:
 #
-# • the innermost scope, which is searched first, contains the local names
-# • the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contain
-# non-local, but also non-global names
-# • the next-to-last scope contains the current module’s global names
-# • the outermost scope (searched last) is the namespace containing built-in names
+#
+#
+# # Creating a new class creates a new type of object,
+# # allowing new instances of that type to be made. Each class instance can have attributes attached to it for maintaining
+# # its state. Class instances can also have methods (defined by its class) for modifying its state.
+#
+# # The class inheritance mechanism allows multiple base classes, a
+# # derived class can override any methods of its base class or classes, and a method can call the method of a base class
+# # with the same name.
+#
+# # Classes are created at runtime, and can be modified further after creation.
+#
+#  # As in Smalltalk, classes themselves are objects.
+#
+# # -----------------------------
+# #  NAMESPACE
+# # -----------------------------
+#
+# # A NAMESPACE MAPS A NAME TO AN OBJECT
+#
+# # A namespace is a mapping from names to objects. Most namespaces are currently implemented as Python dictionaries,
+# # but that’s normally not noticeable in any way (except for performance), and it may change in the future. Examples
+# # of namespaces are: the set of built-in names (containing functions such as abs(), and built-in exception names);
+# # the global names in a module; and the local names in a function invocation. In a sense the set of attributes of an
+# # object also form a namespace. The important thing to know about namespaces is that there is absolutely no relation
+# # between names in different namespaces; for instance, two different modules may both define a function maximize
+# # without confusion — users of the modules must prefix it with the module name
+#
+# # -----------------------------
+# #  ATTRIBUTES
+# # -----------------------------
+#
+# # By the way, I use the word attribute for any name following a dot — for example, in the expression z.real, real
+# # is an attribute of the object z
+#
+# # Strictly speaking, references to names in modules are attribute references: in the
+# # expression modname.funcname, modname is a module object and funcname is an attribute of it. In this case there
+# # happens to be a straightforward mapping between the module’s attributes and the global names defined in the module:
+# # they share the same namespace!
+#
+# # -----------------------------
+# #  SCOPE
+# # -----------------------------
+#
+# # Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4
+# # nested scopes whose namespaces are directly accessible:
+# #
+# # • the innermost scope, which is searched first, contains the local names
+# # • the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contain
+# # non-local, but also non-global names
+# # • the next-to-last scope contains the current module’s global names
+# # • the outermost scope (searched last) is the namespace containing built-in names
+#
+# # Usually, the local scope references the local names of the (textually) current function. Outside functions, the local
+# # scope references the same namespace as the global scope: the module’s namespace. Class definitions place yet another
+# # namespace in the local scope.
+#
+# # It is important to realize that scopes are determined textually: the global scope of a function defined in a module
+# # is that module’s namespace, no matter from where or by what alias the function is called.
+#
+# # -----------------------------
+# #  ASSIGNEMENT OF NAMES TO OBJECTS
+# # -----------------------------
+#
+# # Assignments do not copy data — they just bind names to objects. The same is true for
+# # deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact,
+# # all operations that introduce new names use the local scope: in particular, import statements and function definitions
+# # bind the module or function name in the local scope.
+#
+# # -----------------------------
+# #  CLASS DEFINITION
+# # -----------------------------
+#
+# # Class definitions, like function definitions (def statements) must be executed before they have any effect. (You could
+# # conceivably place a class definition in a branch of an if statement, or inside a function.)
+#
+# # When a class definition is entered, a new namespace is created, and used as the local scope — thus, all assignments
+# # to local variables go into this new namespace. In particular, function definitions bind the name of the new function
+# # here
+#
+# # When a class definition is left normally (via the end), a class object is created.
+#
+# # The original local scope (the one in effect just before the class definition was entered) is reinstated, and the class object is
+# # bound here to the class name given in the class definition header (ClassName in the example below):
+#
+# # class ClassName:
+# #     # <statement-1>
+# #     #
+# #     # <statement-N
+#
+# # -----------------------------
+# #  CLASS OBJECTS
+# # -----------------------------
+#
+# # A class is an object that supports two kinds of operations:
+#
+# 1. Attribute references
 
-# Usually, the local scope references the local names of the (textually) current function. Outside functions, the local
-# scope references the same namespace as the global scope: the module’s namespace. Class definitions place yet another
-# namespace in the local scope.
+# In Python, classes are instances of the type class (or a metaclass). You can see this directly:
 
-# It is important to realize that scopes are determined textually: the global scope of a function defined in a module
-# is that module’s namespace, no matter from where or by what alias the function is called.
+# class MyClass:
+#     # pass
 
-# -----------------------------
-#  ASSIGNEMENT OF NAMES TO OBJECTS
-# -----------------------------
+# print(type(MyClass))  # <class 'type'>
+# print(isinstance(MyClass, object))  # True
 
-# Assignments do not copy data — they just bind names to objects. The same is true for
-# deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact,
-# all operations that introduce new names use the local scope: in particular, import statements and function definitions
-# bind the module or function name in the local scope.
+
+# When you define a class, Python creates a class object.
+#
+# When you instantiate that class, you create an instance object.
+
+# Both the class and its instances are objects, just different types of objects.
+
+# Since classes are objects in Python, they have all the properties of objects:
+#
+# They have a type: type(MyClass) returns <class 'type'>
+# They can be assigned to variables: AnotherName = MyClass
+# They can be passed as arguments: some_function(MyClass)
+# They can be returned from functions: return MyClass
+# They have attributes: You can add attributes to the class object itself
+# They have methods: Like __new__, __init__, etc.
+#
+# 2. Instantiation.
+#
+# # ------------------------------Attribute references
+#
+# # Attribute references use the standard syntax used for all attribute references in Python: obj.name. Valid attribute
+# # names are all the names that were in the class’s namespace when the class object was created. So, if the class definition
+# # looked like this:
+#
+# class MyClass:
+#     """A simple example class"""
+#     i = 12345
+#     def f(self):
+#         return 'hello world'
+#
+# # MyClass.i and MyClass.f are valid attribute references, returning an integer and a function object, respectively.
+# # Class attributes can also be assigned to, so you can change the value of MyClass.i by assignment. __doc__
+# # is also a valid attribute, returning the docstring belonging to the class: "A simple example class".
+#
+# # ------------------------------Instantiation
+#
+# # Class instantiation uses function notation. Just pretend that the class object is a parameterless function that returns a
+# # new instance of the class. For example (assuming the above class):
+#
+# x = MyClass()
+#
+# # creates a new instance of the class and assigns this object to the local variable x
+#
+# # The instantiation operation (“calling” a class object) creates an empty object. Many classes like to create objects with
+# # instances customized to a specific initial state. Therefore a class may define a special method named __init__(),
+# # like this:
+#
+# def __init__(self):
+#     self.data = []
+#
+# # When a class defines an __init__() method, class instantiation automatically invokes __init__() for the newly
+# # created class instance. So in this example, a new, initialized instance can be obtained by:
+#
+# x = MyClass()
+#
+# # Of course, the __init__() method may have arguments for greater flexibility. In that case, arguments given to the
+# # class instantiation operator are passed on to __init__(). For example,
+#
+# class Complex:
+#     def __init__(self, realpart, imagpart):
+#         self.r = realpart
+#         # self.i = imagpart
+#
+# x = Complex(3.0, -4.5)
+# x.r, x.i
+# #  Result
+# # (3.0, -4.5)
+
+# # -----------------------------
+# #  INSTANCE OBJECTS
+# # -----------------------------
+
+# Now what can we do with instance objects? The only operations understood by instance objects are attribute references.
+# There are two kinds of valid attribute names:
+#
+# 1. Data attributes;
+#
+# 2. Methods.
+
+# ------------------------------Data attributes
+
+# Data attributes are properties that belong to an object and are accessed using dot notation (like self.name in Python or
+# # this.property in JavaScript). They represent the state or characteristics of that specific object instance. They are different
+# from variables because variables are names that refer to values stored in memory within a particular scope, so they exist independently of any object.
+
+# Example:
+
+# class Person:
+#     def __init__(self, name):
+#         self.name = name  # data attribute
+#         # local_var = "temp"  # local variable
+#
+#     def greet(self):
+#         message = "Hello"  # local variable
+#         return f"{message}, I'm {self.name}"  # accessing data attribute
+
+# Data attributes can indeed be thought of as variables that belong to a specific object instance.
+# This framing captures the key aspects:
+# Like variables, data attributes:
+#
+# Store values that can be read and modified
+# Have names that refer to memory locations
+# Can hold different data types
+#
+# But unlike regular variables, data attributes:
+#
+# Are bound to a specific object instance
+# Persist as long as the object exists
+# Are accessed through the object (using dot notation)
+# Can have different values across different instances of the same
+
+
+# class Car:
+#     def __init__(self, color):
+#         self.color = color  # data attribute - a "variable" belonging to this car instance
+
+
+# car1 = Car("red")
+# car2 = Car("blue")
+
+
+# Each instance has its own "color variable"
+# print(car1.color)  # "red"
+# print(car2.color)  # "blue"
+
+# ------------------------------Methods
+
+# The other kind of instance attribute reference is a method. A method is a function that “belongs to” an object.
+
+# The general rule: When you call object.method(arg1, arg2), Python secretly converts it to Class.method(object, arg1, arg2).
+# This is why the first parameter in method definitions is always self - it receives the object that the method was called on.
+# Python handles this automatically so you don't have to think about it, but understanding this mechanism helps explain why methods work the way they do.
+
+# See an example of Data Attribues and Methods usage in the file pyhton_syntax_import_and_OOP_examples.py
+
+# ------------------------------Class and Instance Variables
+
+# Generally speaking, instance variables are for data unique to each instance and class variables are for attributes and
+# methods shared by all instances of the class:
+
+
+# class Dog:
+#     kind = 'canine' # class variable shared by all instances
+#     def __init__(self, name):
+#         self.name = name # instance variable/data attribute specific to each instance
+
+
+# d = Dog('Fido')
+# e = Dog('Buddy')
+
+# d.kind # shared by all dogs
+# Result will be:
+# 'canine'
+
+
+# e.kind # shared by all dogs
+# Result will be:
+# 'canine'
+
+
+# d.name # unique to d
+# Result will be:
+# 'Fido'
+
+
+# e.name # unique to e
+# 'Buddy'
+
+# To avoid that class variables are unexpectedly shared by all instances indiscriminately, design classes as follows:
+
+
+# class Dog:
+#     def __init__(self, name):
+#         self.name = name
+#         self.tricks = [] # creates a new empty list for each dog as data attribute/instance variable
+#
+#     def add_trick(self, trick): # the method is defined here
+#         self.tricks.append(trick)
+#
+#
+# d = Dog('Fido')
+# e = Dog('Buddy')
+# d.add_trick('roll over')
+
+# If the same attribute name occurs in both an instance and in a class, then attribute lookup prioritizes the instance:
+
+
+# class Warehouse:
+#     purpose = 'storage'
+#     region = 'west'
+#
+# w1 = Warehouse()
+# print(w1.purpose, w1.region)
+
+
+# Result will be:
+
+# storage west
+
+
+# w2 = Warehouse()
+#
+# w2.region = 'east'
+#
+# print(w2.purpose, w2.region)
+
+
+# Result will be:
+
+# storage east
+
+# Often, the first argument of a method is called self. This is nothing more than a convention: the name self has
+# absolutely no special meaning to Python. Note, however, that by not following the convention your code may be less
+# readable to other Python programmers, and it is also conceivable that a class browser program might be written that
+# relies upon such a convention
+
+# ------------------------------Methods calling other methods
+
+# Methods may call other methods by using method attributes of the self argument:
+
+
+# class Bag:
+#     def __init__(self):
+#         self.data = []
+#
+#     def add(self, x):
+#         self.data.append(x)
+#
+#     def addtwice(self, x):
+#         self.add(x)
+#         self.add(x)
+
+
+# The global scope associated with a
+# method is the module containing its definition. (A class is never used as a global scope.)
+
+# Usually, the class containing the method is itself defined in this global scope, and in the next section we’ll find
+# some good reasons why a method would want to reference its own class
+
+# # -----------------------------
+# #  INHERITANCE
+# # -----------------------------
+
+# Of course, a language feature would not be worthy of the name “class” without supporting inheritance. The syntax
+# for a derived class definition looks like this:
+
+
+# class DerivedClassName(BaseClassName):
+# <statement-1>
+# .
+# .
+# .
+# <statement-N>
+
+
+# The name BaseClassName must be defined in a namespace accessible from the scope containing the derived class
+# definition. In place of a base class name, other arbitrary expressions are also allowed. This can be useful, for example,
+# when the base class is defined in another module:
+# class DerivedClassName(modname.BaseClassName):
+# Execution of a derived class definition proceeds the same as for a base class. When the class object is constructed,
+# the base class is remembered. This is used for resolving attribute references: if a requested attribute is not found
+# in the class, the search proceeds to look in the base class. This rule is applied recursively if the base class itself is
+# derived from some other class.
+
+# ------------------------------Multiple inheritance
+
+# Python supports a form of multiple inheritance as well. A class definition with multiple base classes looks like this:
+
+
+# class DerivedClassName(Base1, Base2, Base3):
+#     <statement-1>
+#     .
+#     .
+#     .
+#     <statement-N>
+#
+
+# For most purposes, in the simplest cases, you can think of the search for attributes inherited from a parent class as
+# depth-first, left-to-right, not searching twice in the same class where there is an overlap in the hierarchy. Thus, if an
+# attribute is not found in DerivedClassName, it is searched for in Base1, then (recursively) in the base classes of
+# Base1, and if it was not found there, it was searched for in Base2, and so on.
+
+# ------------------------------Multiple inheritance with super() built-in method
+
+# The super() method in Python is a built-in function that provides access to methods in a parent class from a child class.
+# It's essential for inheritance and allows you to extend or modify parent class behavior without duplicating code.
+
+# Why Use super()?
+#
+# Instead of calling parent methods directly by class name, super() provides a clean, maintainable way to access parent functionality.
+# It's especially important in multiple inheritance scenarios.
+
+# Example
+
+# Basic inheritance with super()
+
+# class Animal:
+#     def __init__(self, name, species):
+#         self.name = name
+#         self.species = species
+#         print(f"Animal created: {name}")
+#
+#     def make_sound(self):
+#         print(f"{self.name} makes a sound")
+#
+#     def info(self):
+#         print(f"Name: {self.name}, Species: {self.species}")
+#
+#
+# See the example of usage with super in python_syntax_import_OOP_and_standard_library_examples.py
+
+# # ------------------------------Decorators
+#
+# A decorator in Python is a function that takes another function (or class) as input and returns a modified version of it.
+# See example in the python_syntax_import_OOP_and_standard_library_examples.py file
+
+# # ------------------------------Iterators
+
+# An iterator in Python is an object that lets you go through a collection of items one at a time, without needing to access them all at once.
+# Here's a simple example:
+
+# Create a list
+# numbers = [1, 2, 3, 4, 5]
+
+# Get an iterator from the list
+# number_iterator = iter(numbers)
+#
+# # Use the iterator to get items one by one
+# print(next(number_iterator))  # Output: 1
+# print(next(number_iterator))  # Output: 2
+# print(next(number_iterator))  # Output: 3
+
+# Think of an iterator like a bookmark in a book. It remembers where you left off and gives you the next item when you ask for it.
+# Once you've gone through all items, it raises a StopIteration exception to signal it's done.
+# You can also use iterators in a for loop, which handles the next() calls automatically:
+
+# numbers = [1, 2, 3, 4, 5]
+# for num in numbers:  # Python creates an iterator behind the scenes
+#     print(num)
+
+# The main benefit is memory efficiency - instead of loading all items into memory at once, an iterator processes them one
+# at a time. This is especially useful when working with large datasets or infinite sequences.
+
+# See example of an iterator in python_syntax_import_OOP_and_standard_library_examples.py
+
+# # ------------------------------Generators
+
+# Generators are a simple and powerful tool for creating iterators. They are written like regular functions but use the
+# yield statement whenever they want to return data. Each time next() is called on it, the generator resumes where
+# it left off (it remembers all the data values and which statement was last executed).
+# What makes generators so compact is that the __iter__() and __next__() methods are created
+# automatically.
+# A more simple explanation is this: Generators in Python are functions that can pause and resume their execution,
+# yielding values one at a time instead of returning all values at once. They're memory-efficient because they produce
+# values on-demand rather than storing everything in memory.
+# You create a generator using the yield keyword instead of return. When called, a generator function returns a generator
+# object that you can iterate over.
+
+# See example of a generator in python_syntax_import_OOP_and_standard_library_examples.py
+
+
+# --------------------------------------------------------
+# BRIEF TOUR OF THE STANDARD LIBRARY
+# --------------------------------------------------------
+
+# # ------------------------------Operating System interface
+
+# The os module provides dozens of functions for interacting with the operating system (examples shown by using the
+# Python interpreter
+
+# >>> import os
+# >>> os.getcwd() # Return the current working directory
+# 'C:\\Python313'
+# >>> os.chdir('/server/accesslogs') # Change current working directory
+# >>> os.system('mkdir today') # Run the command mkdir in the system shell
+# 0
+
+# The built-in dir() and help() functions are useful as interactive aids for working with large modules like os:
+#
+# >>> import os
+# >>> dir(os)
+# <returns a list of all module functions>
+# >>> help(os)
+# <returns an extensive manual page created from the module's docstrings>
+
+# # ------------------------------File Wildcards
+
+# The glob module provides a function for making file lists from directory wildcard searches:
+#
+# >>> import glob
+# >>> glob.glob('*.py')
+# ['primes.py', 'random.py', 'quote.py']
+
+# # ------------------------------Command Line Arguments
+
+# Common utility scripts often need to process command line arguments. These arguments are stored in the sys
+# module’s argv attribute as a list. For instance, let’s take the following demo.py file:
+
+# File demo.py
+# import sys
+# print(sys.argv)
+#
+# Here is the output from running python demo.py one two three at the command line:
+#
+# ['demo.py', 'one', 'two', 'three']
+
+# The argparse module provides a more sophisticated mechanism to process command line arguments. The following
+# script extracts one or more filenames and an optional number of lines to be displayed:
+
+# import argparse
+# parser = argparse.ArgumentParser(
+# prog='top',
+# description='Show top lines from each file')
+# parser.add_argument('filenames', nargs='+')
+# parser.add_argument('-l', '--lines', type=int, default=10)
+# args = parser.parse_args()
+# print(args)
+
+# When run at the command line with python top.py --lines=5 alpha.txt beta.txt, the script sets args.
+# lines to 5 and args.filenames to ['alpha.txt', 'beta.txt'].
+
+# # ------------------------------ String Pattern Matching
+
+# This Python code demonstrates the use of regular expressions to find specific patterns in text.
+# Here's what each part does:
+
+# import re - Imports Python's regular expression module
+# re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest') - Searches for a specific pattern in the given string
+# The regular expression pattern r'\bf[a-z]*' breaks down as:
+
+# \b - Word boundary (ensures we match complete words, not parts of words)
+# f - Literal letter "f"
+# [a-z]* - Zero or more lowercase letters following the "f"
+
+# So this pattern finds all words that start with the letter "f" followed by any number of lowercase letters.
+# The result ['foot', 'fell', 'fastest'] shows the three words from the input string that match this pattern.
+# The code successfully extracts "foot", "fell", and "fastest" from the sentence "which foot or hand fell fastest"
+# because these are the only complete words that begin with "f" followed by lowercase letters. Words like "which", "or",
+# and "hand" don't match because they don't start with "f".
+
+# For other examples see file python_syntax_import_OOP_and_standard_library_examples.py
+
+
+
+# --------------------------------------------------------
+#VIRTUAL ENVIRONMENT
+# --------------------------------------------------------
+
+# The module used to create and manage virtual environments is called venv. venv will install the Python version
+# from which the command was run (as reported by the --version option). For instance, executing the command
+# with python3.12 will install version 3.12.
+# To create a virtual environment, decide upon a directory where you want to place it, and run the venv module as a
+# script with the directory path:
+
+# $ python -m venv tutorial-env
+
+# This will create the tutorial-env directory if it doesn’t exist, and also create directories inside it containing a copy
+# of the Python interpreter and various supporting files.
+# A common directory location for a virtual environment is .venv. This name keeps the directory typically hidden
+# in your shell and thus out of the way while giving it a name that explains why the directory exists. It also prevents
+# clashing with .env environment variable definition files that some tooling supports.
+# Once you’ve created a virtual environment, you may activate it.
+
+# # ------------------------------ Virtual environment activation/deactivation
+
+# On Windows, run:
+
+# $ tutorial-env\Scripts\activate
+
+# On Unix or MacOS, run:
+
+# $ source tutorial-env/bin/activate
+
+# # ------------------------------ How the shell looks like after the Virtual environment is activated
+
+# Activating the virtual environment will change your shell’s prompt to show what virtual environment you’re using,
+# and modify the environment so that running python will get you that particular version and installation of Python.
+# For example:
+
+# $ source ~/envs/tutorial-env/bin/activate
+#
+# (tutorial-env) $ python
+#
+# Python 3.5.1 (default, May 6 2016, 10:59:36)
+# ...
+# >>> import sys
+# >>> sys.path
+#
+# ['', '/usr/local/lib/python35.zip', ...,
+# '~/envs/tutorial-env/lib/python3.5/site-packages']
+# >>>
+
+# To deactivate a virtual environment, type:
+
+# deactivate
+#
+# into the terminal.
+
+
+
+# --------------------------------------------------------
+#PIP
+# --------------------------------------------------------
+
+
+
+# You can install, upgrade, and remove packages using a program called pip. By default pip will install packages from
+# the Python Package Index. You can browse the Python Package Index by going to it in your web browser.
+# pip has a number of subcommands: “install”, “uninstall”, “freeze”, etc. (Consult the installing-index guide for
+# complete documentation for pip.)
+# You can install the latest version of a package by specifying a package’s name:
+
+# (tutorial-env) $ python -m pip install novas
+
+# Collecting novas
+# Downloading novas-3.1.1.3.tar.gz (136kB)
+# Installing collected packages: novas
+# Running setup.py install for novas
+# Successfully installed novas-3.1.1.3
+
+# You can also install a specific version of a package by giving the package name followed by == and the version
+# number:
+
+# (tutorial-env) $ python -m pip install requests==2.6.0
+#
+# Collecting requests==2.6.0
+# Using cached requests-2.6.0-py2.py3-none-any.whl
+# Installing collected packages: requests
+# Successfully installed requests-2.6.0
+
+# If you re-run this command, pip will notice that the requested version is already installed and do nothing. You can
+# supply a different version number to get that version, or you can run python -m pip install --upgrade to
+# upgrade the package to the latest version:
+
+# (tutorial-env) $ python -m pip install --upgrade requests
+
+# Collecting requests
+# Installing collected packages: requests
+# Found existing installation: requests 2.6.0
+# Uninstalling requests-2.6.0:
+# Successfully uninstalled requests-2.6.0
+# Successfully installed requests-2.7.0
+
+# python -m pip uninstall followed by one or more package names will remove the packages from the virtual
+# environment.
+
+# python -m pip show will display information about a particular package:
+
+# (tutorial-env) $ python -m pip show requests
+
+# ---
+# Metadata-Version: 2.0
+# Name: requests
+# Version: 2.7.0
+# Summary: Python HTTP for Humans.
+# Home-page: http://python-requests.org
+# Author: Kenneth Reitz
+# Author-email: me@kennethreitz.com
+# License: Apache 2.0
+# Location: /Users/akuchling/envs/tutorial-env/lib/python3.4/site-packages
+# Requires:
+
+# python -m pip list will display all of the packages installed in the virtual environment
+
+# python -m pip freeze will produce a similar list of the installed packages, but the output uses the format that
+# python -m pip install expects. A common convention is to put this list in a requirements.txt file:
+#
+# (tutorial-env) $ python -m pip freeze > requirements.txt
+# (tutorial-env) $ cat requirements.txt
+#
+# novas==3.1.1.3
+# numpy==1.9.2
+# requests==2.7.0
+
+# The requirements.txt can then be committed to version control and shipped as part of an application. Users can
+# then install all the necessary packages with install -r:
+
+# (tutorial-env) $ python -m pip install -r requirements.txt
+#
+# Collecting novas==3.1.1.3 (from -r requirements.txt (line 1))
+# ...
+# Collecting numpy==1.9.2 (from -r requirements.txt (line 2))
+# ...
+# Collecting requests==2.7.0 (from -r requirements.txt (line 3))
+# ...
+# Installing collected packages: novas, numpy, requests
+# Running setup.py install for novas
+# Successfully installed novas-3.1.1.3 numpy-1.9.2 requests-2.7.0
